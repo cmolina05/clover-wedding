@@ -42,13 +42,13 @@ export default function App() {
   ];
 
   return (
-    <div className="bg-wedding-ivory text-wedding-charcoal">
+    <div className="bg-wedding-ivory bg-paper-texture min-h-screen text-wedding-charcoal">
       {!envelopeOpened && <EnvelopeOpener onComplete={() => setEnvelopeOpened(true)} />}
       <ScrollProgress />
       {/* ─── Navigation ─────────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-600 ${navScrolled
-            ? 'bg-dusty-blue-50/95 backdrop-blur-md shadow-soft py-4 border-b border-dusty-blue-100'
+            ? 'bg-wedding-ivory/90 bg-paper-texture backdrop-blur-md shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)] py-4 border-b border-dusty-blue-light/30'
             : 'bg-transparent py-7'
           }`}
       >
@@ -56,7 +56,7 @@ export default function App() {
           {/* Logo / couple name */}
           <a
             href="#home"
-            className={`font-serif text-base tracking-widest transition-colors duration-400 ${navScrolled ? 'text-dusty-blue-700' : 'text-white'
+            className={`font-serif text-base tracking-widest transition-colors duration-400 text-letterpress ${navScrolled ? 'text-dusty-blue-700' : 'text-white'
               }`}
           >
             {weddingConfig.couple.groom} <span className="italic text-wedding-gold">&</span> {weddingConfig.couple.bride}
@@ -98,7 +98,7 @@ export default function App() {
           className="md:hidden overflow-hidden transition-all duration-400"
           style={{ maxHeight: mobileMenuOpen ? '300px' : '0' }}
         >
-          <div className="bg-dusty-blue-50/98 backdrop-blur-md border-t border-dusty-blue-100 px-6 py-4 space-y-1">
+          <div className="bg-wedding-ivory/98 bg-paper-texture backdrop-blur-md border-t border-dusty-blue-light/30 px-6 py-4 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -117,12 +117,12 @@ export default function App() {
       <section id="home"><Hero /></section>
 
       {/* Welcome interlude */}
-      <section className="py-24 px-6" style={{ background: 'linear-gradient(180deg, #F3EDE4 0%, #E8E0D3 100%)' }}>
+      <section className="py-24 px-6 bg-paper-texture" style={{ background: 'linear-gradient(180deg, #F3EDE4 0%, #E8E0D3 100%)' }}>
         <div className="max-w-2xl mx-auto text-center reveal">
           <div className="ornament">
             <div className="ornament-diamond" />
           </div>
-          <p className="font-serif italic text-2xl md:text-3xl leading-relaxed mb-5" style={{ fontWeight: 300, color: '#3D5A6B' }}>
+          <p className="font-serif italic text-2xl md:text-3xl leading-relaxed mb-5 text-letterpress" style={{ fontWeight: 300, color: '#3D5A6B' }}>
             "With joyful hearts, we invite you to celebrate the beginning of our forever."
           </p>
           <p className="text-sm leading-relaxed font-sans max-w-lg mx-auto" style={{ color: '#5F7D8C' }}>
@@ -146,7 +146,7 @@ export default function App() {
       <Registry />
 
       {/* ─── Footer ──────────────────────────────────────────── */}
-      <footer className="py-20 text-center relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #1C2D37 0%, #2E4452 100%)' }}>
+      <footer className="py-20 text-center relative overflow-hidden bg-paper-texture" style={{ background: 'linear-gradient(180deg, #1C2D37 0%, #2E4452 100%)' }}>
         {/* Blue gradient top accent */}
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #3D5A6B, #7A9BAD, #B8CDD7, #7A9BAD, #3D5A6B)' }} />
 
@@ -160,7 +160,7 @@ export default function App() {
         <div className="relative z-10">
           <p className="text-[10px] tracking-ultra uppercase font-sans mb-4" style={{ color: '#7A9BAD' }}>{weddingConfig.dateFormatted}</p>
 
-          <h3 className="font-serif text-4xl md:text-5xl mb-3" style={{ fontWeight: 300, letterSpacing: '0.05em', color: '#EBF4F7' }}>
+          <h3 className="font-serif text-4xl md:text-5xl mb-3 text-letterpress-dark" style={{ fontWeight: 300, letterSpacing: '0.05em', color: '#EBF4F7' }}>
             {weddingConfig.couple.groom} <span className="italic" style={{ color: '#B8CDD7' }}>&</span> {weddingConfig.couple.bride}
           </h3>
 

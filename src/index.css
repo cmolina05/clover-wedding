@@ -98,17 +98,17 @@ p { line-height: 1.7; }
   flex: 1;
   max-width: 90px;
   height: 1px;
-  background: linear-gradient(to right, transparent, #A0907E);
+  background: linear-gradient(to right, transparent, #7A9BAD);
 }
 
 .ornament::after {
-  background: linear-gradient(to left, transparent, #A0907E);
+  background: linear-gradient(to left, transparent, #7A9BAD);
 }
 
 .ornament-diamond {
   width: 6px;
   height: 6px;
-  background: #A0907E;
+  background: #7A9BAD;
   transform: rotate(45deg);
   flex-shrink: 0;
 }
@@ -117,7 +117,7 @@ p { line-height: 1.7; }
 .section-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  color: #5C4E3C;
+  color: #3D5A6B;
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
   font-weight: 400;
@@ -129,7 +129,7 @@ p { line-height: 1.7; }
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #8A7B68;
+  color: #5F7D8C;
   margin-bottom: 0.75rem;
 }
 
@@ -141,7 +141,7 @@ p { line-height: 1.7; }
 
 .card-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(138,123,104,0.18);
+  box-shadow: 0 16px 48px rgba(95,125,140,0.18);
 }
 
 /* ─── Shimmer button ─────────────────────────────────── */
@@ -166,12 +166,12 @@ p { line-height: 1.7; }
 
 /* ─── Scrollbar ──────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #E8E0D3; }
-::-webkit-scrollbar-thumb { background: #B8A990; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #8A7B68; }
+::-webkit-scrollbar-track { background: #E2EBF0; }
+::-webkit-scrollbar-thumb { background: #8FB0C0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #5F7D8C; }
 
 /* ─── Text selection ─────────────────────────────────── */
-::selection { background: #C8B99A; color: #2B3338; }
+::selection { background: #8FB0C0; color: #2E4452; }
 
 /* ─── Image zoom ─────────────────────────────────────── */
 .img-hover-zoom { overflow: hidden; }
@@ -187,7 +187,7 @@ p { line-height: 1.7; }
 /* ─── Top accent bar (warm gradient) ────────────────── */
 .accent-bar {
   height: 2px;
-  background: linear-gradient(90deg, #8A7B68 0%, #C8B99A 50%, #E0D5C4 100%);
+  background: linear-gradient(90deg, #5F7D8C 0%, #8FB0C0 50%, #D9E8EE 100%);
 }
 
 /* ─── Parallax watermark text ─────────────────────── */
@@ -278,6 +278,16 @@ p { line-height: 1.7; }
   animation: fadeIn 0.45s ease-out forwards;
 }
 
-
-
+/* ─── Paper stationery utilities ─────────────────── */
+@layer utilities {
+  .bg-paper-texture {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+  .text-letterpress {
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.7);
+  }
+  .text-letterpress-dark {
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+  }
+}
 

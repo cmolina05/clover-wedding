@@ -38,27 +38,21 @@ interface DetailCardProps {
 
 function DetailCard({ label, time, venue, address, mapsUrl, embedUrl, delay }: DetailCardProps) {
   return (
-    <div className={`reveal reveal-delay-${delay} card-lift group bg-wedding-ivory border border-dusty-blue-light/60 rounded-sm shadow-card overflow-hidden`}>
+    <div className={`reveal reveal-delay-${delay} card-lift group relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)] overflow-hidden`}>
+      {/* Inner hairline border */}
+      <div className="absolute inset-2 border border-dusty-blue-light/30 pointer-events-none rounded-sm" />
+
       {/* Top accent bar */}
       <div className="h-[2px] bg-gold-gradient" />
 
       {/* Embedded Map */}
       <div className="w-full h-52 overflow-hidden border-b border-dusty-blue-light/40">
-        <iframe
-          src={embedUrl}
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title={`Map - ${venue}`}
-        />
+        <iframe src={embedUrl} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={`Map - ${venue}`} />
       </div>
 
-      <div className="p-10 flex flex-col h-full">
+      <div className="p-10 flex flex-col h-full relative z-10">
         <span className="text-[9px] tracking-ultra uppercase text-wedding-gold font-sans mb-4">{label}</span>
-        <h3 className="font-serif text-3xl text-dusty-blue-dark mb-6" style={{ fontWeight: 400 }}>{venue}</h3>
+        <h3 className="font-serif text-3xl text-dusty-blue-dark mb-6 text-letterpress" style={{ fontWeight: 400 }}>{venue}</h3>
 
         <div className="space-y-3 mb-8 flex-grow">
           <div className="flex items-center gap-2 text-xs text-wedding-charcoal/70 font-sans">
@@ -75,12 +69,8 @@ function DetailCard({ label, time, venue, address, mapsUrl, embedUrl, delay }: D
           </div>
         </div>
 
-        <a
-          href={mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[10px] tracking-widest uppercase text-dusty-blue-dark border border-dusty-blue-dark/40 hover:bg-dusty-blue-dark hover:text-wedding-white hover:border-dusty-blue-dark transition-all duration-400 py-3 px-6 rounded-none font-sans self-start"
-        >
+        <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-[10px] tracking-widest uppercase font-sans bg-dusty-blue-dark text-wedding-white hover:bg-wedding-charcoal transition-all duration-400 py-3 px-6 rounded-sm self-start">
           Open in Google Maps
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -105,59 +95,34 @@ export default function WeddingDetails() {
   const transportIcons: Record<string, React.ReactNode> = { car: carIcon, bus: busIcon };
 
   return (
-    <div className="py-28 px-6 bg-wedding-white">
+    <div className="py-28 px-6 bg-wedding-white bg-paper-texture">
       <div className="max-w-5xl mx-auto">
-
         <div className="text-center mb-20 reveal">
           <p className="text-[10px] tracking-ultra uppercase text-wedding-gold font-sans mb-3">Save the Date</p>
-          <h2 className="section-title">Wedding Details</h2>
-          <div className="ornament mt-4">
-            <div className="ornament-diamond" />
-          </div>
+          <h2 className="section-title text-letterpress">Wedding Details</h2>
+          <div className="ornament mt-4"><div className="ornament-diamond" /></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <DetailCard
-            label="Ceremony"
-            time={weddingConfig.ceremony.time}
-            venue={weddingConfig.ceremony.venue}
-            address={weddingConfig.ceremony.address}
-            mapsUrl={weddingConfig.ceremony.googleMapsUrl}
-            embedUrl={weddingConfig.ceremony.embedUrl}
-            delay={1}
-          />
-          <DetailCard
-            label="Reception"
-            time={weddingConfig.reception.time}
-            venue={weddingConfig.reception.venue}
-            address={weddingConfig.reception.address}
-            mapsUrl={weddingConfig.reception.googleMapsUrl}
-            embedUrl={weddingConfig.reception.embedUrl}
-            delay={2}
-          />
+          <DetailCard label="Ceremony" time={weddingConfig.ceremony.time} venue={weddingConfig.ceremony.venue} address={weddingConfig.ceremony.address} mapsUrl={weddingConfig.ceremony.googleMapsUrl} embedUrl={weddingConfig.ceremony.embedUrl} delay={1} />
+          <DetailCard label="Reception" time={weddingConfig.reception.time} venue={weddingConfig.reception.venue} address={weddingConfig.reception.address} mapsUrl={weddingConfig.reception.googleMapsUrl} embedUrl={weddingConfig.reception.embedUrl} delay={2} />
         </div>
 
-        {/* How to Get Here */}
         <div>
-          <h3 className="font-serif text-2xl text-dusty-blue-dark mb-8 text-center reveal" style={{ fontWeight: 400 }}>How to Get Here</h3>
+          <h3 className="font-serif text-2xl text-dusty-blue-dark mb-8 text-center reveal text-letterpress" style={{ fontWeight: 400 }}>How to Get Here</h3>
           <div className="grid md:grid-cols-2 gap-4">
             {weddingConfig.travel.transportation.map((item, idx) => (
-              <div
-                key={idx}
-                className={`reveal reveal-delay-${Math.min(idx + 1, 4)} bg-wedding-ivory border border-dusty-blue-light/50 rounded-sm p-6 flex gap-4`}
-              >
-                <span className="text-dusty-blue flex-shrink-0 mt-0.5">
-                  {transportIcons[item.icon] || carIcon}
-                </span>
-                <div>
-                  <h4 className="font-serif text-base text-dusty-blue-dark mb-1">{item.title}</h4>
+              <div key={idx} className={`reveal reveal-delay-${Math.min(idx + 1, 4)} relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/50 rounded-sm p-6 flex gap-4 shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)]`}>
+                <div className="absolute inset-2 border border-dusty-blue-light/20 pointer-events-none rounded-sm" />
+                <span className="text-dusty-blue flex-shrink-0 mt-0.5">{transportIcons[item.icon] || carIcon}</span>
+                <div className="relative z-10">
+                  <h4 className="font-serif text-base text-dusty-blue-dark mb-1 text-letterpress">{item.title}</h4>
                   <p className="text-xs text-wedding-charcoal/60 leading-relaxed font-sans">{item.details}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );

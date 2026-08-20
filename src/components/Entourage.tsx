@@ -3,36 +3,31 @@ import { weddingConfig } from '../config/wedding';
 
 export default function Entourage() {
   return (
-    <div className="py-28 px-6 bg-wedding-white">
+    <div className="py-28 px-6 bg-wedding-white bg-paper-texture">
       <div className="max-w-5xl mx-auto">
-
         <div className="text-center mb-20 reveal">
           <p className="text-[10px] tracking-ultra uppercase text-wedding-gold font-sans mb-3">With Gratitude</p>
-          <h2 className="section-title">Entourage</h2>
-          <div className="ornament mt-4">
-            <div className="ornament-diamond" />
-          </div>
+          <h2 className="section-title text-letterpress">Entourage</h2>
+          <div className="ornament mt-4"><div className="ornament-diamond" /></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {weddingConfig.entourage.map((group, idx) => (
-            <div
-              key={idx}
-              className={`reveal reveal-delay-${Math.min(idx + 1, 4)} card-lift bg-wedding-ivory border border-dusty-blue-light/50 rounded-sm shadow-card overflow-hidden`}
-            >
-              {/* Category header */}
-              <div className="bg-dusty-blue-mist px-8 py-5 border-b border-dusty-blue-light/40">
-                <h3 className="font-serif text-xl text-dusty-blue-dark tracking-wide" style={{ fontWeight: 400 }}>
+            <div key={idx}
+              className={`reveal reveal-delay-${Math.min(idx + 1, 4)} card-lift relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/50 rounded-sm shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)] overflow-hidden`}>
+              <div className="absolute inset-2 border border-dusty-blue-light/20 pointer-events-none rounded-sm" />
+
+              <div className="bg-dusty-blue-dark bg-paper-texture px-8 py-5 border-b border-dusty-blue/60 relative z-10">
+                <h3 className="font-serif text-xl tracking-wide text-letterpress-dark relative z-10" style={{ fontWeight: 400, color: '#EBF4F7' }}>
                   {group.category}
                 </h3>
               </div>
 
-              {/* Members */}
-              <div className={`px-8 py-6 ${['Principal Sponsors', 'Bridesmaids & Groomsmen'].includes(group.category) ? 'grid grid-cols-2 gap-x-6 gap-y-4' : 'space-y-4'}`}>
+              <div className={`px-8 py-6 relative z-10 ${['Principal Sponsors', 'Bridesmaids & Groomsmen'].includes(group.category) ? 'grid grid-cols-2 gap-x-6' : 'space-y-0'}`}>
                 {group.members.map((member, mIdx) => (
-                  <div key={mIdx} className={`flex items-center justify-between ${!['Principal Sponsors', 'Bridesmaids & Groomsmen'].includes(group.category) ? 'border-b border-dusty-blue-light/30 pb-3 last:border-0 last:pb-0' : ''}`}>
-                    <p className="font-serif text-base text-wedding-charcoal">{member.name}</p>
-                    {group.category !== 'Principal Sponsors' && (
+                  <div key={mIdx} className={`flex items-center justify-between border-b border-dusty-blue-light/30 pb-3 last:border-0 last:pb-0`}>
+                    <p className="font-serif text-base text-wedding-charcoal text-letterpress">{member.name}</p>
+                    {!['Principal Sponsors', 'Bridesmaids & Groomsmen'].includes(group.category) && (
                       <span className="text-[9px] tracking-widest uppercase text-wedding-gold font-sans ml-4 flex-shrink-0">
                         {member.role}
                       </span>

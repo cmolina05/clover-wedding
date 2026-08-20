@@ -12,7 +12,7 @@ import RSVPForm from './components/RSVPForm';
 import FAQAccordion from './components/FAQAccordion';
 import Registry from './components/Registry';
 import ScrollProgress from './components/ScrollProgress';
-import Preloader from './components/Preloader';
+import EnvelopeOpener from './components/EnvelopeOpener';
 import MusicPlayer from './components/MusicPlayer';
 import Hashtag from './components/Hashtag';
 import BackToTop from './components/BackToTop';
@@ -22,6 +22,7 @@ export default function App() {
   const [navScrolled, setNavScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [envelopeOpened, setEnvelopeOpened] = useState(false);
 
   useScrollReveal();
 
@@ -41,8 +42,8 @@ export default function App() {
   ];
 
   return (
-    <div className="bg-wedding-blue-white text-wedding-charcoal">
-      <Preloader />
+    <div className="bg-wedding-ivory text-wedding-charcoal">
+      {!envelopeOpened && <EnvelopeOpener onComplete={() => setEnvelopeOpened(true)} />}
       <ScrollProgress />
       {/* ─── Navigation ─────────────────────────────────────── */}
       <nav
@@ -116,7 +117,7 @@ export default function App() {
       <section id="home"><Hero /></section>
 
       {/* Welcome interlude */}
-      <section className="py-24 px-6" style={{ background: 'linear-gradient(180deg, #EBF4F7 0%, #D9E8EE 100%)' }}>
+      <section className="py-24 px-6" style={{ background: 'linear-gradient(180deg, #F3EDE4 0%, #E8E0D3 100%)' }}>
         <div className="max-w-2xl mx-auto text-center reveal">
           <div className="ornament">
             <div className="ornament-diamond" />

@@ -54,8 +54,8 @@ export default function OurStory() {
                   className={`reveal reveal-delay-${Math.min(index + 1, 4)} md:flex items-center gap-8 ${isLeft ? '' : 'md:flex-row-reverse'}`}
                 >
                   {/* Card */}
-                  <div className={`flex-1 ${isLeft ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="card-lift bg-wedding-white border border-dusty-blue-light/60 rounded-sm shadow-card overflow-hidden">
+                  <div className={`flex-1 ${isLeft ? 'md:flex md:justify-end' : ''}`}>
+                    <div className={`card-lift bg-wedding-white border border-dusty-blue-light/60 rounded-sm shadow-card overflow-hidden ${isLeft ? 'md:text-right' : ''} w-full md:max-w-lg`}>
                       {/* Photo grid */}
                       {item.images && item.images.length > 0 && (
                         <div className="grid grid-cols-2 gap-1">

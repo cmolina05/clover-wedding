@@ -39,9 +39,9 @@ export default function Preloader() {
           transition: 'opacity 0.5s ease, transform 0.5s ease',
         }}
       >
-        <span style={{ color: '#B7A27A' }}>{initials.split('&')[0]}</span>
-        <span className="italic mx-2" style={{ color: '#E8D9BE', fontSize: '0.6em' }}>&amp;</span>
-        <span style={{ color: '#B7A27A' }}>{initials.split('&')[1]}</span>
+        <span style={{ color: '#8FB0C0' }}>{initials.split('&')[0]}</span>
+        <span className="italic mx-2" style={{ color: '#B8CDD7', fontSize: '0.6em' }}>&amp;</span>
+        <span style={{ color: '#8FB0C0' }}>{initials.split('&')[1]}</span>
       </div>
 
       {/* Thin line */}

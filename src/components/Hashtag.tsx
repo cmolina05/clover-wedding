@@ -12,7 +12,7 @@ export default function Hashtag() {
   return (
     <div
       className="py-28 px-6 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #1C2D37 0%, #2E4452 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #1C2D37 0%, #2E3E48 100%)' }}
     >
       {/* Background pattern */}
       <div
@@ -55,7 +55,7 @@ export default function Hashtag() {
           >
             <p
               className="font-serif text-2xl md:text-3xl tracking-wide group-hover:text-wedding-gold transition-colors duration-300"
-              style={{ color: '#B7A27A', fontWeight: 300 }}
+              style={{ color: '#8FB0C0', fontWeight: 300 }}
             >
               {hashtag}
             </p>

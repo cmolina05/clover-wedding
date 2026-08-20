@@ -3,7 +3,7 @@ import { weddingConfig } from '../config/wedding';
 
 export default function Program() {
   return (
-    <div className="py-28 px-6 bg-ivory-gradient relative overflow-hidden">
+    <div className="py-28 px-6 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #F3EDE4 0%, #E8E0D3 100%)' }}>
       {/* Background watermark text */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none parallax-watermark"

@@ -258,4 +258,26 @@ p { line-height: 1.7; }
   opacity: 0;
 }
 
+/* ─── Gentle sway for boutique hanger vector ────────── */
+@keyframes gentleSway {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-1.5deg); }
+  75%      { transform: rotate(1.5deg); }
+}
+
+.group-hover-sway {
+  transform-origin: 50% 10px;
+  transition: transform 0.5s ease-out;
+}
+
+.group:hover .group-hover-sway {
+  animation: gentleSway 4s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.45s ease-out forwards;
+}
+
+
+
 

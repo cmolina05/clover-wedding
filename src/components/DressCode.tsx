@@ -1,46 +1,114 @@
-
 import { weddingConfig } from '../config/wedding';
+import { NinongVector, NinangVector, GentlemenVector, LadiesVector } from './AttireVectors';
+
+const { dressCode } = weddingConfig;
 
 export default function DressCode() {
   return (
-    <div className="py-28 px-6 bg-wedding-ivory">
-      <div className="max-w-3xl mx-auto text-center">
-
-        <div className="reveal mb-20">
-          <p className="text-[10px] tracking-ultra uppercase text-wedding-gold font-sans mb-3">Attire Guide</p>
-          <h2 className="section-title">Dress Code</h2>
-          <p className="text-xs tracking-ultra uppercase text-dusty-blue-dark font-sans mt-2 mb-4">
-            {weddingConfig.dressCode.title}
-          </p>
-          <div className="ornament mt-4">
-            <div className="ornament-diamond" />
-          </div>
-        </div>
-
-        <p className="reveal text-sm text-wedding-charcoal/75 max-w-lg mx-auto leading-relaxed font-sans mb-16">
-          {weddingConfig.dressCode.description}
-        </p>
-
-        {/* Swatches */}
-        <div className="reveal flex flex-wrap justify-center gap-10">
-          {weddingConfig.dressCode.swatches.map((swatch, idx) => (
-            <div
-              key={idx}
-              className={`reveal reveal-delay-${Math.min(idx + 1, 4)} flex flex-col items-center gap-3 group`}
-            >
-              <div
-                className="w-16 h-16 rounded-full shadow-card group-hover:shadow-card-hover transition-all duration-400 group-hover:scale-110 border-2 border-white"
-                style={{ backgroundColor: swatch.hex }}
-              />
-              <span className="text-[9px] tracking-widest uppercase text-wedding-charcoal/60 font-sans">{swatch.name}</span>
+    <div className="py-28 px-6 bg-wedding-ivory relative overflow-hidden" id="attire">
+      <div className="max-w-5xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 min-h-[550px]">
+          
+          {/* ── Left Column (Desktop Only): Ninong & Gentleman ── */}
+          <div className="hidden md:flex md:w-[22%] flex-col justify-between py-12 h-[550px] items-center">
+            {/* Ninong Vector */}
+            <div className="w-36 h-48 group hover:scale-105 transition-transform duration-500 relative flex items-center justify-center">
+              <NinongVector />
             </div>
-          ))}
-        </div>
+            {/* Gentlemen Guest Vector */}
+            <div className="w-36 h-48 group hover:scale-105 transition-transform duration-500 relative flex items-center justify-center">
+              <GentlemenVector />
+            </div>
+          </div>
+          
+          {/* ── Center Content Column (All Screens) ── */}
+          <div className="w-full md:w-[56%] flex flex-col items-center text-center">
+            
+            {/* ── Header ─────────────────────────────────── */}
+            <div className="text-center mb-10 reveal">
+              <p className="text-[10px] tracking-ultra uppercase text-wedding-gold font-sans mb-3">Attire Guide</p>
+              <h2 className="section-title">Dress Code</h2>
+              <div className="ornament mt-4">
+                <div className="ornament-diamond" />
+              </div>
+            </div>
 
-        {/* Gentle note */}
-        <p className="reveal mt-16 text-[11px] tracking-wide text-wedding-charcoal/40 font-serif italic">
-          Please avoid wearing white or black, to help our couple stand out.
-        </p>
+            {/* Mobile Vectors Row (Hidden on Desktop) */}
+            <div className="grid grid-cols-4 gap-3 w-full max-w-sm mx-auto mb-10 md:hidden">
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-20"><NinongVector /></div>
+                <span className="text-[8px] uppercase tracking-wider text-wedding-charcoal/50 mt-1 font-sans">Ninong</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-20"><NinangVector /></div>
+                <span className="text-[8px] uppercase tracking-wider text-wedding-charcoal/50 mt-1 font-sans">Ninang</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-20"><GentlemenVector /></div>
+                <span className="text-[8px] uppercase tracking-wider text-wedding-charcoal/50 mt-1 font-sans">Gentleman</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-20"><LadiesVector /></div>
+                <span className="text-[8px] uppercase tracking-wider text-wedding-charcoal/50 mt-1 font-sans">Lady</span>
+              </div>
+            </div>
+
+            {/* Principal Sponsors Segment */}
+            <div className="mb-10 font-sans">
+              <p className="text-[10px] tracking-ultra uppercase text-wedding-gold mb-5 font-semibold">
+                {dressCode.sponsors.label}
+              </p>
+              <div className="space-y-2 text-base font-semibold text-dusty-blue-800">
+                <p>Ninong: <span className="font-normal text-wedding-charcoal/80">Barong and Black Slacks</span></p>
+                <p>Ninang: <span className="font-normal text-wedding-charcoal/80">Beige Formal Long Gown/Dress</span></p>
+                <p>Shoes: <span className="font-normal text-wedding-charcoal/80">Anything comfortable</span></p>
+              </div>
+            </div>
+
+            {/* Guest Segment */}
+            <div className="mb-8 font-sans">
+              <p className="text-[10px] tracking-ultra uppercase text-wedding-gold mb-5 font-semibold">
+                {dressCode.guests.label}
+              </p>
+              <div className="space-y-4 text-sm leading-relaxed max-w-md mx-auto text-wedding-charcoal/70">
+                <p>Please come dressed on your formal/ sunday dress and smart casual attire.</p>
+                <p>We kindly encourage our guests to dress in our color palette on our special day.</p>
+                <p>Strict compliance on dress code is asked. NO slippers, shorts, maong other informal outfits of any kind will be allowed.</p>
+              </div>
+            </div>
+
+            {/* Color Palette Swatches circles */}
+            <div className="flex justify-center items-center gap-6 mt-6">
+              {dressCode.swatches.map((swatch, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col items-center gap-2 group cursor-pointer"
+                >
+                  <div
+                    className="w-10 h-10 rounded-full shadow-card group-hover:scale-110 transition-all duration-300 border-2 border-white"
+                    style={{ backgroundColor: swatch.hex }}
+                    title={swatch.name}
+                  />
+                  <span className="text-[7px] tracking-widest uppercase text-wedding-charcoal/50 font-sans">{swatch.name}</span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+          {/* ── Right Column (Desktop Only): Ninang & Lady ── */}
+          <div className="hidden md:flex md:w-[22%] flex-col justify-between py-12 h-[550px] items-center">
+            {/* Ninang Vector */}
+            <div className="w-36 h-48 group hover:scale-105 transition-transform duration-500 relative flex items-center justify-center">
+              <NinangVector />
+            </div>
+            {/* Ladies Guest Vector */}
+            <div className="w-36 h-48 group hover:scale-105 transition-transform duration-500 relative flex items-center justify-center">
+              <LadiesVector />
+            </div>
+          </div>
+          
+        </div>
       </div>
     </div>
   );

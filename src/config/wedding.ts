@@ -53,7 +53,17 @@ export interface WeddingConfig {
   entourage: EntourageCategory[];
   dressCode: {
     title: string;
-    description: string;
+    subtitle: string;
+    sponsors: {
+      label: string;
+      items: { role: string; attire: string }[];
+    };
+    guests: {
+      label: string;
+      primaryNote: string;
+      colorNote: string;
+    };
+    compliance: string;
     swatches: ColorSwatch[];
   };
   faqs: FAQItem[];
@@ -227,14 +237,27 @@ export const weddingConfig: WeddingConfig = {
     },
   ],
   dressCode: {
-    title: "Formal Attire",
-    description: "We invite our guests to dress in elegant formal attire that complements our dusty blue wedding palette.",
+    title: "Finer Details",
+    subtitle: "Dress Code",
+    sponsors: {
+      label: "Principal Sponsors",
+      items: [
+        { role: "Ninong", attire: "Barong and Black Slacks" },
+        { role: "Ninang", attire: "Beige Formal Long Gown/Dress" },
+        { role: "SHOES", attire: "Anything comfortable" },
+      ],
+    },
+    guests: {
+      label: "Guest",
+      primaryNote: "Please come dressed on your formal/ sunday dress and smart casual attire.",
+      colorNote: "We kindly encourage our guests to dress in our color palette on our special day.",
+    },
+    compliance: "Strict compliance on dress code is asked. NO slippers, shorts, maong other informal outfits of any kind will be allowed.",
     swatches: [
-      { name: "Dusty Blue", hex: "#8FA9B8" },
-      { name: "Baby Blue", hex: "#89CFF0" },
-      { name: "Light Gray", hex: "#D3D3D3" },
-      { name: "Gray", hex: "#808080" },
-      { name: "Navy", hex: "#1C2D37" },
+      { name: "Silver Gray", hex: "#C5C9CE" },
+      { name: "Dusty Blue", hex: "#8EA7BF" },
+      { name: "Sky Blue", hex: "#A5D5F5" },
+      { name: "Deep Navy Blue", hex: "#3B6291" },
     ],
   },
   faqs: [

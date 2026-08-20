@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { weddingConfig } from '../config/wedding';
 
 export default function DressCode() {

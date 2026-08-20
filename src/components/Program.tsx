@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { weddingConfig } from '../config/wedding';
 
 export default function Program() {
@@ -6,11 +6,11 @@ export default function Program() {
     <div className="py-28 px-6 bg-ivory-gradient relative overflow-hidden">
       {/* Background watermark text */}
       <div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none parallax-watermark"
         aria-hidden="true"
       >
         <span
-          className="font-serif text-dusty-blue-light/20 leading-none"
+          className="font-serif text-dusty-blue-light/20 leading-none animate-float"
           style={{ fontSize: 'clamp(8rem, 20vw, 16rem)', fontWeight: 300, letterSpacing: '-0.02em' }}
         >
           Program

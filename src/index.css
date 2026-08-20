@@ -174,3 +174,30 @@ p { line-height: 1.7; }
   height: 2px;
   background: linear-gradient(90deg, #3D5A6B 0%, #7A9BAD 50%, #B8CDD7 100%);
 }
+
+/* ─── Parallax watermark text ─────────────────────── */
+.parallax-watermark {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ─── Smooth section transitions ──────────────────── */
+section {
+  will-change: transform;
+}
+
+/* ─── Fade-up on scroll (enhanced) ────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Subtle float animation ──────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}

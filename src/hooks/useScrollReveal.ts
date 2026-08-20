@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 /**
  * Adds IntersectionObserver-based scroll reveal to elements with class "reveal".

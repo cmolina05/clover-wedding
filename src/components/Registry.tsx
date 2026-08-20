@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { weddingConfig } from '../config/wedding';
 
 export default function Registry() {
@@ -34,14 +34,14 @@ export default function Registry() {
         </div>
 
         {/* Account cards */}
-        <div className="reveal grid sm:grid-cols-2 gap-4 max-w-md mx-auto">
+        <div className="reveal flex flex-col gap-4 max-w-sm mx-auto">
           {weddingConfig.registry.accounts.map((acc, idx) => (
             <div
               key={idx}
               className={`reveal reveal-delay-${idx + 1} card-lift bg-wedding-white border border-dusty-blue-light rounded-sm shadow-card overflow-hidden`}
             >
               <div className="h-[2px] bg-gold-gradient" />
-              <div className="p-6 text-left">
+              <div className="px-8 py-6 text-left">
                 <p className="text-[9px] tracking-ultra uppercase text-wedding-gold font-sans font-semibold mb-2">{acc.type}</p>
                 <p className="text-sm text-wedding-charcoal font-sans leading-relaxed">{acc.details}</p>
                 {acc.note && (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { weddingConfig } from '../config/wedding';
 
 export default function FAQAccordion() {

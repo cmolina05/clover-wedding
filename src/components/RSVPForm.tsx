@@ -14,9 +14,6 @@ export default function RSVPForm() {
     fullName: '',
     email: '',
     attendance: 'yes',
-    guestCount: '1',
-    guestNames: '',
-    mealPreference: '',
     message: '',
   });
 
@@ -78,131 +75,85 @@ export default function RSVPForm() {
             </p>
           </div>
         ) : (
-          <div className="reveal grid md:grid-cols-2 gap-10 items-start">
+          <div className="reveal max-w-lg mx-auto space-y-6">
 
-            {/* Left: Attendance + details */}
-            <div className="space-y-6">
-              {/* Name */}
-              <div>
-                <label className={labelClass}>Full Name *</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Your full name"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className={inputClass}
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className={labelClass}>Email Address *</label>
-                <input
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={inputClass}
-                />
-              </div>
-
-              {/* Attendance toggle */}
-              <div>
-                <label className={labelClass}>Will you be attending? *</label>
-                <div className="grid grid-cols-2 gap-3">
-                  {(['yes', 'no'] as const).map((val) => (
-                    <button
-                      key={val}
-                      type="button"
-                      onClick={() => setFormData({ ...formData, attendance: val })}
-                      className={`py-3.5 text-[10px] tracking-[0.15em] uppercase font-sans transition-all duration-300 border ${
-                        formData.attendance === val
-                          ? 'bg-dusty-blue-dark text-wedding-white border-dusty-blue-dark'
-                          : 'border-dusty-blue-light text-wedding-charcoal/70 hover:border-dusty-blue hover:bg-dusty-blue-mist'
-                      }`}
-                    >
-                      {val === 'yes' ? "✓  Joyfully accepts" : "✗  Regretfully declines"}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Guest count — only when attending */}
-              {formData.attendance === 'yes' && (
-                <>
-                  <div>
-                    <label className={labelClass}>Number of Guests</label>
-                    <select
-                      value={formData.guestCount}
-                      onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
-                      className={inputClass}
-                    >
-                      <option value="1">1 Person</option>
-                      <option value="2">2 Persons</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className={labelClass}>Guest Name(s)</label>
-                    <input
-                      type="text"
-                      placeholder="Names of all attending guests"
-                      value={formData.guestNames}
-                      onChange={(e) => setFormData({ ...formData, guestNames: e.target.value })}
-                      className={inputClass}
-                    />
-                  </div>
-                </>
-              )}
+            {/* Name */}
+            <div>
+              <label className={labelClass}>Full Name *</label>
+              <input
+                type="text"
+                required
+                placeholder="Your full name"
+                value={formData.fullName}
+                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                className={inputClass}
+              />
             </div>
 
-            {/* Right: Meal + message + submit */}
-            <div className="space-y-6">
-              {formData.attendance === 'yes' && (
-                <div>
-                  <label className={labelClass}>Dietary Preferences</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Vegetarian, Gluten-free, None"
-                    value={formData.mealPreference}
-                    onChange={(e) => setFormData({ ...formData, mealPreference: e.target.value })}
-                    className={inputClass}
-                  />
-                </div>
-              )}
-
-              <div>
-                <label className={labelClass}>Message for the Couple</label>
-                <textarea
-                  rows={5}
-                  placeholder="Share your wishes, a fond memory, or words of love…"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={inputClass}
-                  style={{ resize: 'none' }}
-                />
-              </div>
-
-              {error && (
-                <p className="text-xs text-red-500 font-sans text-center">{error}</p>
-              )}
-
-              <button
-                type="submit"
-                disabled={loading}
-                onClick={handleSubmit}
-                className="btn-shimmer w-full py-4 text-[11px] tracking-[0.2em] uppercase font-sans text-wedding-ivory transition-all duration-500 disabled:opacity-60"
-                style={{ background: loading ? '#8FA9B8' : '#5F7D8C' }}
-              >
-                {loading ? 'Submitting…' : 'Submit RSVP'}
-              </button>
-
-              <p className="text-[10px] text-center text-wedding-charcoal/40 font-sans tracking-wide">
-                Your response is kept private and used only to confirm attendance.
-              </p>
+            {/* Email */}
+            <div>
+              <label className={labelClass}>Email Address *</label>
+              <input
+                type="email"
+                required
+                placeholder="your@email.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className={inputClass}
+              />
             </div>
+
+            {/* Attendance toggle */}
+            <div>
+              <label className={labelClass}>Will you be attending? *</label>
+              <div className="grid grid-cols-2 gap-3">
+                {(['yes', 'no'] as const).map((val) => (
+                  <button
+                    key={val}
+                    type="button"
+                    onClick={() => setFormData({ ...formData, attendance: val })}
+                    className={`py-3.5 text-[10px] tracking-[0.15em] uppercase font-sans transition-all duration-300 border ${
+                      formData.attendance === val
+                        ? 'bg-dusty-blue-dark text-wedding-white border-dusty-blue-dark'
+                        : 'border-dusty-blue-light text-wedding-charcoal/70 hover:border-dusty-blue hover:bg-dusty-blue-mist'
+                    }`}
+                  >
+                    {val === 'yes' ? "✓  Joyfully accepts" : "✗  Regretfully declines"}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className={labelClass}>Message for the Couple</label>
+              <textarea
+                rows={5}
+                placeholder="Share your wishes, a fond memory, or words of love…"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className={inputClass}
+                style={{ resize: 'none' }}
+              />
+            </div>
+
+            {error && (
+              <p className="text-xs text-red-500 font-sans text-center">{error}</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              onClick={handleSubmit}
+              className="btn-shimmer w-full py-4 text-[11px] tracking-[0.2em] uppercase font-sans text-wedding-ivory transition-all duration-500 disabled:opacity-60"
+              style={{ background: loading ? '#8FA9B8' : '#5F7D8C' }}
+            >
+              {loading ? 'Submitting…' : 'Submit RSVP'}
+            </button>
+
+            <p className="text-[10px] text-center text-wedding-charcoal/40 font-sans tracking-wide">
+              Your response is kept private and used only to confirm attendance.
+            </p>
 
           </div>
         )}

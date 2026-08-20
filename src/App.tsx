@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { weddingConfig } from './config/wedding';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import Hero from './components/Hero';
@@ -11,6 +11,11 @@ import Gallery from './components/Gallery';
 import RSVPForm from './components/RSVPForm';
 import FAQAccordion from './components/FAQAccordion';
 import Registry from './components/Registry';
+import ScrollProgress from './components/ScrollProgress';
+import Preloader from './components/Preloader';
+import MusicPlayer from './components/MusicPlayer';
+import Hashtag from './components/Hashtag';
+import BackToTop from './components/BackToTop';
 import AdminDashboardModal from './components/AdminDashboardModal';
 
 export default function App() {
@@ -37,6 +42,8 @@ export default function App() {
 
   return (
     <div className="bg-wedding-blue-white text-wedding-charcoal">
+      <Preloader />
+      <ScrollProgress />
       {/* ─── Navigation ─────────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-600 ${navScrolled
@@ -129,9 +136,10 @@ export default function App() {
       <section id="story"><OurStory /></section>
       <section id="details"><WeddingDetails /></section>
       <section id="program"><Program /></section>
-      <section id="entourage"><Entourage /></section>
       <DressCode />
+      <section id="entourage"><Entourage /></section>
       <section id="gallery"><Gallery /></section>
+      <Hashtag />
       <section id="rsvp"><RSVPForm /></section>
       <FAQAccordion />
       <Registry />
@@ -142,8 +150,8 @@ export default function App() {
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #3D5A6B, #7A9BAD, #B8CDD7, #7A9BAD, #3D5A6B)' }} />
 
         {/* Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
-          <span className="font-serif" style={{ fontSize: 'clamp(6rem, 15vw, 12rem)', letterSpacing: '-0.02em', color: 'rgba(122,155,173,0.06)' }}>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none parallax-watermark" aria-hidden="true">
+          <span className="font-serif animate-float" style={{ fontSize: 'clamp(6rem, 15vw, 12rem)', letterSpacing: '-0.02em', color: 'rgba(122,155,173,0.06)' }}>
             Forever
           </span>
         </div>
@@ -182,6 +190,8 @@ export default function App() {
       </footer>
 
       {isAdminOpen && <AdminDashboardModal onClose={() => setIsAdminOpen(false)} />}
+      <MusicPlayer />
+      <BackToTop />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { weddingConfig } from '../config/wedding';
 import HeroParticles from './HeroParticles';
 
@@ -8,8 +8,17 @@ export default function Hero() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isToday, setIsToday] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [parallaxY, setParallaxY] = useState(0);
 
   useEffect(() => { const t = setTimeout(() => setLoaded(true), 80); return () => clearTimeout(t); }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setParallaxY(window.scrollY * 0.35);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const target = new Date(weddingConfig.date).getTime();
@@ -37,8 +46,11 @@ export default function Hero() {
 
       {/* Background photo */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=85&w=2400')` }}
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=85&w=2400')`,
+          transform: `translateY(${parallaxY}px)`,
+        }}
       />
 
       {/* Floating particles */}
@@ -94,24 +106,37 @@ export default function Hero() {
         {/* Countdown */}
         <div style={anim('0.9s')} className="mb-10">
           {isToday ? (
-            <h2 className="font-serif text-3xl text-wedding-gold tracking-widest">TODAY IS THE DAY ❤️</h2>
+            <h2 className="font-serif text-3xl text-dusty-blue tracking-widest">TODAY IS THE DAY ❤️</h2>
           ) : (
-            <div className="grid grid-cols-4 gap-3 max-w-sm mx-auto">
-              {[
-                { label: 'Days', val: timeLeft.days },
-                { label: 'Hours', val: timeLeft.hours },
-                { label: 'Min', val: timeLeft.minutes },
-                { label: 'Sec', val: timeLeft.seconds },
-              ].map((item) => (
-                <div key={item.label} className="flex flex-col items-center py-4 px-2 rounded-sm"
-                  style={{ background: 'rgba(61,90,107,0.45)', backdropFilter: 'blur(10px)', border: '1px solid rgba(184,205,215,0.35)' }}>
-                  <span className="font-serif text-white" style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', lineHeight: 1, fontWeight: 300 }}>
-                    {String(item.val).padStart(2, '0')}
-                  </span>
-                  <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-dusty-blue-200 mt-1.5">{item.label}</span>
-                </div>
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-4 gap-3 max-w-sm mx-auto">
+                {[
+                  { label: 'Days', val: timeLeft.days },
+                  { label: 'Hours', val: timeLeft.hours },
+                  { label: 'Min', val: timeLeft.minutes },
+                  { label: 'Sec', val: timeLeft.seconds },
+                ].map((item) => (
+                  <div key={item.label} className="flex flex-col items-center py-4 px-2 rounded-sm"
+                    style={{ background: 'rgba(61,90,107,0.45)', backdropFilter: 'blur(10px)', border: '1px solid rgba(184,205,215,0.35)' }}>
+                    <span className="font-serif text-white" style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', lineHeight: 1, fontWeight: 300 }}>
+                      {String(item.val).padStart(2, '0')}
+                    </span>
+                    <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-dusty-blue-200 mt-1.5">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Milestone message */}
+              <p className="font-serif italic text-sm text-dusty-blue-900/80 mt-5 tracking-wide" style={{ fontWeight: 300 }}>
+                {timeLeft.days > 365 && "A love story years in the making…"}
+                {timeLeft.days > 180 && timeLeft.days <= 365 && "The countdown to forever has begun."}
+                {timeLeft.days > 100 && timeLeft.days <= 180 && "We're getting closer to our forever."}
+                {timeLeft.days > 30 && timeLeft.days <= 100 && "Every day brings us nearer to our dream day."}
+                {timeLeft.days > 7 && timeLeft.days <= 30 && "Just a few more sunsets until we say 'I do.'"}
+                {timeLeft.days > 1 && timeLeft.days <= 7 && "This week changes everything."}
+                {timeLeft.days === 1 && "Tomorrow is the day we've been waiting for."}
+              </p>
+            </>
           )}
         </div>
 
@@ -132,8 +157,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-dusty-blue-200/80">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-dusty-blue-300/70 to-transparent animate-pulse" />
+        <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-dusty-blue-700/80">Scroll</span>
+        <div className="w-px h-8 bg-gradient-to-b from-dusty-blue-700/70 to-transparent animate-pulse" />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { weddingConfig } from '../config/wedding';
 
 export default function Entourage() {
@@ -28,13 +28,15 @@ export default function Entourage() {
               </div>
 
               {/* Members */}
-              <div className="px-8 py-6 space-y-4">
+              <div className={`px-8 py-6 ${['Principal Sponsors', 'Bridesmaids & Groomsmen'].includes(group.category) ? 'grid grid-cols-2 gap-x-6 gap-y-4' : 'space-y-4'}`}>
                 {group.members.map((member, mIdx) => (
-                  <div key={mIdx} className="flex items-center justify-between border-b border-dusty-blue-light/30 pb-3 last:border-0 last:pb-0">
+                  <div key={mIdx} className={`flex items-center justify-between ${!['Principal Sponsors', 'Bridesmaids & Groomsmen'].includes(group.category) ? 'border-b border-dusty-blue-light/30 pb-3 last:border-0 last:pb-0' : ''}`}>
                     <p className="font-serif text-base text-wedding-charcoal">{member.name}</p>
-                    <span className="text-[9px] tracking-widest uppercase text-wedding-gold font-sans ml-4 flex-shrink-0">
-                      {member.role}
-                    </span>
+                    {group.category !== 'Principal Sponsors' && (
+                      <span className="text-[9px] tracking-widest uppercase text-wedding-gold font-sans ml-4 flex-shrink-0">
+                        {member.role}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>

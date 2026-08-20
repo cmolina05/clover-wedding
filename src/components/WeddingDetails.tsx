@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { weddingConfig } from '../config/wedding';
 
 function CalendarIcon() {
@@ -32,14 +32,29 @@ interface DetailCardProps {
   venue: string;
   address: string;
   mapsUrl: string;
+  embedUrl: string;
   delay: number;
 }
 
-function DetailCard({ label, time, venue, address, mapsUrl, delay }: DetailCardProps) {
+function DetailCard({ label, time, venue, address, mapsUrl, embedUrl, delay }: DetailCardProps) {
   return (
     <div className={`reveal reveal-delay-${delay} card-lift group bg-wedding-ivory border border-dusty-blue-light/60 rounded-sm shadow-card overflow-hidden`}>
       {/* Top accent bar */}
       <div className="h-[2px] bg-gold-gradient" />
+
+      {/* Embedded Map */}
+      <div className="w-full h-52 overflow-hidden border-b border-dusty-blue-light/40">
+        <iframe
+          src={embedUrl}
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title={`Map - ${venue}`}
+        />
+      </div>
 
       <div className="p-10 flex flex-col h-full">
         <span className="text-[9px] tracking-ultra uppercase text-wedding-gold font-sans mb-4">{label}</span>
@@ -66,7 +81,7 @@ function DetailCard({ label, time, venue, address, mapsUrl, delay }: DetailCardP
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-[10px] tracking-widest uppercase text-dusty-blue-dark border border-dusty-blue-dark/40 hover:bg-dusty-blue-dark hover:text-wedding-white hover:border-dusty-blue-dark transition-all duration-400 py-3 px-6 rounded-none font-sans self-start"
         >
-          View on Google Maps
+          Open in Google Maps
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -77,6 +92,18 @@ function DetailCard({ label, time, venue, address, mapsUrl, delay }: DetailCardP
 }
 
 export default function WeddingDetails() {
+  const carIcon = (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 17h.01M16 17h.01M3 11l1.5-5h15L21 11M3 11h18M3 11v6a1 1 0 001 1h1a1 1 0 001-1v-1h12v1a1 1 0 001 1h1a1 1 0 001-1v-6" />
+    </svg>
+  );
+  const busIcon = (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 17h.01M16 17h.01M3 11l1.5-5h15L21 11M3 11h18M3 11v6a1 1 0 001 1h1a1 1 0 001-1v-1h12v1a1 1 0 001 1h1a1 1 0 001-1v-6M7 17v2M17 17v2" />
+    </svg>
+  );
+  const transportIcons: Record<string, React.ReactNode> = { car: carIcon, bus: busIcon };
+
   return (
     <div className="py-28 px-6 bg-wedding-white">
       <div className="max-w-5xl mx-auto">
@@ -89,13 +116,14 @@ export default function WeddingDetails() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           <DetailCard
             label="Ceremony"
             time={weddingConfig.ceremony.time}
             venue={weddingConfig.ceremony.venue}
             address={weddingConfig.ceremony.address}
             mapsUrl={weddingConfig.ceremony.googleMapsUrl}
+            embedUrl={weddingConfig.ceremony.embedUrl}
             delay={1}
           />
           <DetailCard
@@ -104,9 +132,32 @@ export default function WeddingDetails() {
             venue={weddingConfig.reception.venue}
             address={weddingConfig.reception.address}
             mapsUrl={weddingConfig.reception.googleMapsUrl}
+            embedUrl={weddingConfig.reception.embedUrl}
             delay={2}
           />
         </div>
+
+        {/* How to Get Here */}
+        <div>
+          <h3 className="font-serif text-2xl text-dusty-blue-dark mb-8 text-center reveal" style={{ fontWeight: 400 }}>How to Get Here</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            {weddingConfig.travel.transportation.map((item, idx) => (
+              <div
+                key={idx}
+                className={`reveal reveal-delay-${Math.min(idx + 1, 4)} bg-wedding-ivory border border-dusty-blue-light/50 rounded-sm p-6 flex gap-4`}
+              >
+                <span className="text-dusty-blue flex-shrink-0 mt-0.5">
+                  {transportIcons[item.icon] || carIcon}
+                </span>
+                <div>
+                  <h4 className="font-serif text-base text-dusty-blue-dark mb-1">{item.title}</h4>
+                  <p className="text-xs text-wedding-charcoal/60 leading-relaxed font-sans">{item.details}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );

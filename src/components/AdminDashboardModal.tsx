@@ -6,13 +6,10 @@ interface AdminData {
   totalInvited: number;
   confirmed: number;
   declined: number;
-  totalAttending: number;
   rsvps: Array<{
     fullName: string;
     email: string;
     attending: string;
-    guestCount: number;
-    mealPreference: string;
     message: string;
   }>;
 }
@@ -69,7 +66,7 @@ export default function AdminDashboardModal({ onClose }: { onClose: () => void }
         ) : (
           <div className="space-y-6">
             {/* Stat Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div className="p-4 bg-wedding-ivory rounded-sm text-center border border-dusty-blue-light">
                 <span className="block text-[10px] tracking-widest uppercase text-wedding-charcoal/60">Total Responses</span>
                 <span className="font-serif text-2xl text-dusty-blue-dark">{data?.totalInvited}</span>
@@ -82,10 +79,6 @@ export default function AdminDashboardModal({ onClose }: { onClose: () => void }
                 <span className="block text-[10px] tracking-widest uppercase text-wedding-charcoal/60">Declined</span>
                 <span className="font-serif text-2xl text-red-600">{data?.declined}</span>
               </div>
-              <div className="p-4 bg-wedding-ivory rounded-sm text-center border border-dusty-blue-light">
-                <span className="block text-[10px] tracking-widest uppercase text-wedding-charcoal/60">Guests Attending</span>
-                <span className="font-serif text-2xl text-wedding-gold">{data?.totalAttending}</span>
-              </div>
             </div>
 
             {/* Responses Table */}
@@ -95,8 +88,6 @@ export default function AdminDashboardModal({ onClose }: { onClose: () => void }
                   <tr className="border-b border-dusty-blue-light text-dusty-blue-dark uppercase tracking-wider">
                     <th className="py-2 px-3">Name</th>
                     <th className="py-2 px-3">Status</th>
-                    <th className="py-2 px-3">Guests</th>
-                    <th className="py-2 px-3">Meal Pref</th>
                     <th className="py-2 px-3">Message</th>
                   </tr>
                 </thead>
@@ -109,8 +100,6 @@ export default function AdminDashboardModal({ onClose }: { onClose: () => void }
                           {rsvp.attending}
                         </span>
                       </td>
-                      <td className="py-2.5 px-3">{rsvp.guestCount}</td>
-                      <td className="py-2.5 px-3">{rsvp.mealPreference}</td>
                       <td className="py-2.5 px-3 truncate max-w-xs">{rsvp.message}</td>
                     </tr>
                   ))}

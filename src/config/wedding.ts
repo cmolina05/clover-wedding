@@ -282,7 +282,7 @@ export const weddingConfig: WeddingConfig = {
     ],
   },
   music: {
-    src: "/music/bgm.mp3",
+    src: `${import.meta.env.BASE_URL}music/bgm.mp3`,
     label: "Play our song",
   },
   travel: {

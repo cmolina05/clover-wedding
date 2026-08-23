@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { weddingConfig } from '../config/wedding';
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwBsOFqKu8cTmBPhL8mRjc_lu0A3onWd1njkz5w1v7v9x_JA9JAfedkvB94lFMXzX3L/exec";
 
 const inputClass =
   "w-full px-4 py-3 text-sm border border-dusty-blue-light/80 bg-wedding-ivory/60 rounded-sm focus:outline-none focus:border-dusty-blue-dark focus:ring-0 transition-colors duration-300 font-sans text-wedding-charcoal placeholder:text-wedding-charcoal/30";

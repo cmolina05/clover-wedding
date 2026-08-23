@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwBsOFqKu8cTmBPhL8mRjc_lu0A3onWd1njkz5w1v7v9x_JA9JAfedkvB94lFMXzX3L/exec";
 
 interface AdminData {
   totalInvited: number;

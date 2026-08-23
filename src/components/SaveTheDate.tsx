@@ -16,7 +16,9 @@ export default function SaveTheDate() {
           text: `You're invited! Save the date for ${groom} & ${bride}'s wedding on ${weddingConfig.dateFormatted}.`,
           url: shareUrl,
         });
-      } catch {}
+      } catch {
+        // Share cancelled or unavailable; nothing to do
+      }
     } else {
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);

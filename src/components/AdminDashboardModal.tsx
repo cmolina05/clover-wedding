@@ -34,7 +34,7 @@ export default function AdminDashboardModal({ onClose }: { onClose: () => void }
         setData(json);
         setAuthenticated(true);
       }
-    } catch (err) {
+    } catch {
       alert('Error fetching admin data');
     } finally {
       setLoading(false);

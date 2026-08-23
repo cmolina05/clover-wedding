@@ -68,7 +68,7 @@ export default function RSVPForm() {
                   : "We'll miss having you there, but we're grateful for your love and support."}
               </p>
               <p className="text-xs text-dusty-blue-dark/60 font-sans mt-4 italic">
-                A confirmation has been sent to {formData.email}.
+                Your response has been recorded. Thank you!
               </p>
             </div>
           </div>

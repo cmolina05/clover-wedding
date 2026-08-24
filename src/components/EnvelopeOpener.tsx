@@ -16,28 +16,28 @@ interface Particle {
 }
 
 const HEARTS: Particle[] = [
-  { left: '6%', top: '14%', size: 96, duration: 16, delay: 0, tint: 'rgba(255,255,255,0.9)', glow: 'rgba(190,212,232,0.7)', rot: -10 },
-  { left: '78%', top: '10%', size: 74, duration: 19, delay: 2, tint: 'rgba(201,169,106,0.7)', glow: 'rgba(184,154,95,0.45)', rot: 12 },
-  { left: '13%', top: '64%', size: 58, duration: 14, delay: 4, tint: 'rgba(255,255,255,0.85)', glow: 'rgba(190,212,232,0.6)', rot: -6 },
-  { left: '84%', top: '62%', size: 110, duration: 21, delay: 1, tint: 'rgba(255,255,255,0.8)', glow: 'rgba(190,212,232,0.55)', rot: 9 },
-  { left: '44%', top: '6%', size: 48, duration: 17, delay: 3, tint: 'rgba(201,169,106,0.65)', glow: 'rgba(184,154,95,0.4)', rot: -14 },
-  { left: '62%', top: '84%', size: 66, duration: 15, delay: 5, tint: 'rgba(255,255,255,0.85)', glow: 'rgba(190,212,232,0.6)', rot: 7 },
-  { left: '25%', top: '88%', size: 80, duration: 20, delay: 2.5, tint: 'rgba(122,156,188,0.5)', glow: 'rgba(122,156,188,0.4)', rot: -8 },
-  { left: '92%', top: '34%', size: 44, duration: 13, delay: 0.5, tint: 'rgba(255,255,255,0.9)', glow: 'rgba(190,212,232,0.65)', rot: 11 },
-  { left: '3%', top: '40%', size: 50, duration: 18, delay: 3.5, tint: 'rgba(201,169,106,0.65)', glow: 'rgba(184,154,95,0.42)', rot: -12 },
+  { left: '6%', top: '14%', size: 96, duration: 16, delay: 0, tint: 'rgba(255,255,255,0.85)', glow: 'rgba(235,242,248,0.6)', rot: -10 },
+  { left: '78%', top: '10%', size: 74, duration: 19, delay: 2, tint: 'rgba(201,169,106,0.65)', glow: 'rgba(184,154,95,0.4)', rot: 12 },
+  { left: '13%', top: '64%', size: 58, duration: 14, delay: 4, tint: 'rgba(169,203,233,0.75)', glow: 'rgba(169,203,233,0.5)', rot: -6 },
+  { left: '84%', top: '62%', size: 110, duration: 21, delay: 1, tint: 'rgba(255,255,255,0.75)', glow: 'rgba(235,242,248,0.55)', rot: 9 },
+  { left: '44%', top: '6%', size: 48, duration: 17, delay: 3, tint: 'rgba(195,200,205,0.7)', glow: 'rgba(220,226,232,0.5)', rot: -14 },
+  { left: '62%', top: '84%', size: 66, duration: 15, delay: 5, tint: 'rgba(169,203,233,0.7)', glow: 'rgba(169,203,233,0.45)', rot: 7 },
+  { left: '25%', top: '88%', size: 80, duration: 20, delay: 2.5, tint: 'rgba(255,255,255,0.8)', glow: 'rgba(235,242,248,0.55)', rot: -8 },
+  { left: '92%', top: '34%', size: 44, duration: 13, delay: 0.5, tint: 'rgba(195,200,205,0.65)', glow: 'rgba(220,226,232,0.5)', rot: 11 },
+  { left: '3%', top: '40%', size: 50, duration: 18, delay: 3.5, tint: 'rgba(201,169,106,0.6)', glow: 'rgba(184,154,95,0.4)', rot: -12 },
 ];
 
 const SPARKLES: Particle[] = [
   { left: '18%', top: '22%', size: 4, duration: 4.5, delay: 0.4, tint: '#C9A96A' },
-  { left: '74%', top: '18%', size: 3, duration: 5.5, delay: 1.6, tint: '#4E729A' },
+  { left: '74%', top: '18%', size: 3, duration: 5.5, delay: 1.6, tint: '#E6EAEE' },
   { left: '32%', top: '72%', size: 3, duration: 4, delay: 2.4, tint: '#C9A96A' },
-  { left: '66%', top: '68%', size: 4.5, duration: 6, delay: 0.9, tint: '#4E729A' },
-  { left: '10%', top: '52%', size: 3, duration: 5, delay: 3, tint: '#C9A96A' },
-  { left: '89%', top: '46%', size: 3.5, duration: 4.2, delay: 2, tint: '#4E729A' },
-  { left: '50%', top: '12%', size: 3, duration: 6.5, delay: 1.2, tint: '#C9A96A' },
-  { left: '38%', top: '92%', size: 3.5, duration: 5.2, delay: 3.4, tint: '#4E729A' },
+  { left: '66%', top: '68%', size: 4.5, duration: 6, delay: 0.9, tint: '#A9CBE9' },
+  { left: '10%', top: '52%', size: 3, duration: 5, delay: 3, tint: '#E6EAEE' },
+  { left: '89%', top: '46%', size: 3.5, duration: 4.2, delay: 2, tint: '#C9A96A' },
+  { left: '50%', top: '12%', size: 3, duration: 6.5, delay: 1.2, tint: '#A9CBE9' },
+  { left: '38%', top: '92%', size: 3.5, duration: 5.2, delay: 3.4, tint: '#E6EAEE' },
   { left: '82%', top: '86%', size: 3, duration: 4.8, delay: 0.2, tint: '#C9A96A' },
-  { left: '24%', top: '6%', size: 3, duration: 5.8, delay: 2.8, tint: '#4E729A' },
+  { left: '24%', top: '6%', size: 3, duration: 5.8, delay: 2.8, tint: '#A9CBE9' },
 ];
 
 // Minimalist Vector Floral Cluster (Matching the graphic artwork in image_d36a38)
@@ -147,7 +147,7 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden select-none"
       style={{
-        background: 'linear-gradient(180deg, #F0F5FA 0%, #E3EDF7 40%, #D4E4F2 100%)',
+        background: 'linear-gradient(180deg, #A6B8CB 0%, #7E96AE 50%, #6C859D 100%)',
         opacity: phase === 'fading' ? 0 : 1,
         transition: 'opacity 0.9s ease',
         pointerEvents: isAnimating ? 'none' : 'auto',
@@ -212,7 +212,7 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
               width: p.size,
               height: p.size,
               background: p.tint,
-              boxShadow: `0 0 10px 2px ${p.tint === '#4E729A' ? 'rgba(78,114,154,0.55)' : 'rgba(184,154,95,0.6)'}`,
+              boxShadow: `0 0 10px 2px ${p.tint === '#C9A96A' ? 'rgba(184,154,95,0.6)' : 'rgba(255,255,255,0.65)'}`,
               animation: `env-twinkle ${p.duration}s ease-in-out ${p.delay}s infinite`,
             }}
           />
@@ -230,17 +230,17 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
           }}
         >
           <h1
-            className="font-serif italic text-[#2B4663] tracking-wide mb-1"
+            className="font-serif italic text-[#F7F4EC] tracking-wide mb-1"
             style={{
               fontSize: 'clamp(1.55rem, 7vw, 3rem)',
-              textShadow: '0px 1px 2px rgba(255, 255, 255, 0.9)',
+              textShadow: '0px 1px 3px rgba(44, 74, 120, 0.45)',
             }}
           >
             Love Led by Grace
           </h1>
           <p
-            className="font-sans text-[11px] md:text-xs tracking-[0.35em] text-[#4A6785] uppercase font-semibold"
-            style={{ textShadow: '0px 1px 1px rgba(255, 255, 255, 0.8)' }}
+            className="font-sans text-[11px] md:text-xs tracking-[0.35em] text-[#F7F4EC]/85 uppercase font-semibold"
+            style={{ textShadow: '0px 1px 2px rgba(44, 74, 120, 0.4)' }}
           >
             {weddingConfig.dateFormatted}
           </p>
@@ -254,11 +254,11 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
               width: 'clamp(264px, min(66vw, 58vh), 480px)',
               height: 'clamp(186px, min(46vw, 40vh), 330px)',
               animation: isAnimating ? 'none' : 'env-float 6s ease-in-out infinite',
-              background: '#416388',
+              background: '#2F4C77',
             }}
           >
             {/* 1. Base / Back Panel */}
-            <div className="absolute inset-0 rounded-sm bg-[#3B5B7E]" />
+            <div className="absolute inset-0 rounded-sm bg-[#2C4A78]" />
 
             {/* 2. Invitation Card Inside */}
             <div
@@ -282,11 +282,11 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
               <p className="font-serif italic mb-1 text-[10px] md:text-xs text-[#8A7B68] tracking-widest">
                 Together with their families
               </p>
-              <p className="font-serif text-xl md:text-3xl text-[#2B3338] font-light tracking-wide">
+              <p className="font-serif text-xl md:text-3xl text-[#2C4A78] font-light tracking-wide">
                 {weddingConfig.couple.groom}
               </p>
               <p className="font-serif italic text-sm md:text-lg text-[#B7A27A] my-0.5">&amp;</p>
-              <p className="font-serif text-xl md:text-3xl text-[#2B3338] font-light tracking-wide">
+              <p className="font-serif text-xl md:text-3xl text-[#2C4A78] font-light tracking-wide">
                 {weddingConfig.couple.bride}
               </p>
               <p className="font-sans text-[8px] md:text-[10px] text-[#8A7B68] tracking-widest uppercase mt-2">
@@ -299,7 +299,7 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
               className="absolute inset-0"
               style={{
                 clipPath: 'polygon(0 0, 0 100%, 50% 50%)',
-                background: 'linear-gradient(135deg, #385677 0%, #304C6A 100%)',
+                background: 'linear-gradient(135deg, #2A4570 0%, #223A60 100%)',
                 zIndex: 2,
               }}
             />
@@ -309,7 +309,7 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
               className="absolute inset-0"
               style={{
                 clipPath: 'polygon(100% 0, 100% 100%, 50% 50%)',
-                background: 'linear-gradient(225deg, #325070 0%, #2A4460 100%)',
+                background: 'linear-gradient(225deg, #243E66 0%, #1D3457 100%)',
                 zIndex: 2,
               }}
             />
@@ -319,7 +319,7 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
               className="absolute inset-0"
               style={{
                 clipPath: 'polygon(0 100%, 100% 100%, 50% 50%)',
-                background: 'linear-gradient(180deg, #42648B 0%, #3A5A7E 100%)',
+                background: 'linear-gradient(180deg, #3A5C8C 0%, #2C4A78 100%)',
                 boxShadow: 'inset 0 2px 4px rgba(255,255,255,0.15)',
                 zIndex: 3,
               }}
@@ -365,7 +365,7 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
                 className="absolute inset-0"
                 style={{
                   clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
-                  background: 'linear-gradient(175deg, #4E729A 0%, #43648B 100%)',
+                  background: 'linear-gradient(175deg, #3E6090 0%, #2F4F7E 100%)',
                   backfaceVisibility: 'hidden',
                   boxShadow: 'inset 0 -3px 8px rgba(0,0,0,0.15)',
                 }}
@@ -422,12 +422,12 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
 
         {/* Footer Copy */}
         <p
-          className="font-sans text-[#4A6785] text-[10px] md:text-xs tracking-[0.3em] uppercase font-semibold animate-pulse"
+          className="font-sans text-[#F7F4EC] text-[10px] md:text-xs tracking-[0.3em] uppercase font-semibold animate-pulse"
           style={{
             marginTop: 'clamp(18px, 4.5vh, 48px)',
             opacity: isAnimating ? 0 : 1,
             transition: 'opacity 0.3s ease',
-            textShadow: '0px 1px 1px rgba(255, 255, 255, 0.8)',
+            textShadow: '0px 1px 2px rgba(44, 74, 120, 0.4)',
           }}
         >
           Click to Open

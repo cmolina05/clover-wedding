@@ -277,7 +277,7 @@ export const weddingConfig: WeddingConfig = {
   registry: {
     note: "Your presence at our wedding is the greatest gift of all. For those who wish to bless us further, cash gifts or contributions to our future home are gratefully accepted.",
     accounts: [
-      { type: "Bank Transfer (Landbank)", details: "Account: 1543-1545-28572 | Carlo Molina" },
+      { type: "Bank Transfer (Metrobank)", details: "Account: 1543-1545-28572 | Carlo Molina" },
       { type: "GCash / Maya", details: "0994-763-8964 | Roseth Felomino" },
     ],
   },

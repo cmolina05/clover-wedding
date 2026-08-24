@@ -41,7 +41,7 @@ export default function FAQAccordion() {
                   <div className="relative border-t border-dusty-blue-light/40 bg-gradient-to-b from-[#DCE7F1]/80 to-[#EDF3F9]/80">
                     <div className="absolute left-0 top-0 bottom-0 w-[3px]"
                       style={{ background: 'linear-gradient(180deg, #C9A96A 0%, rgba(201,169,106,0.12) 100%)' }} />
-                    <p className="pl-7 pr-6 py-5 text-sm text-[#2C4A78] leading-relaxed font-sans">
+                    <p className="pl-7 pr-6 py-5 text-sm text-[#2C4A78] leading-relaxed font-sans italic">
                       {faq.answer}
                     </p>
                   </div>

@@ -4,6 +4,42 @@ import { weddingConfig } from '../config/wedding';
 
 type Phase = 'idle' | 'seal-pop' | 'flap-open' | 'card-rise' | 'fading';
 
+interface Particle {
+  left: string;
+  top: string;
+  size: number;
+  duration: number;
+  delay: number;
+  tint?: string;
+  glow?: string;
+  rot?: number;
+}
+
+const HEARTS: Particle[] = [
+  { left: '6%', top: '14%', size: 96, duration: 16, delay: 0, tint: 'rgba(255,255,255,0.9)', glow: 'rgba(190,212,232,0.7)', rot: -10 },
+  { left: '78%', top: '10%', size: 74, duration: 19, delay: 2, tint: 'rgba(201,169,106,0.7)', glow: 'rgba(184,154,95,0.45)', rot: 12 },
+  { left: '13%', top: '64%', size: 58, duration: 14, delay: 4, tint: 'rgba(255,255,255,0.85)', glow: 'rgba(190,212,232,0.6)', rot: -6 },
+  { left: '84%', top: '62%', size: 110, duration: 21, delay: 1, tint: 'rgba(255,255,255,0.8)', glow: 'rgba(190,212,232,0.55)', rot: 9 },
+  { left: '44%', top: '6%', size: 48, duration: 17, delay: 3, tint: 'rgba(201,169,106,0.65)', glow: 'rgba(184,154,95,0.4)', rot: -14 },
+  { left: '62%', top: '84%', size: 66, duration: 15, delay: 5, tint: 'rgba(255,255,255,0.85)', glow: 'rgba(190,212,232,0.6)', rot: 7 },
+  { left: '25%', top: '88%', size: 80, duration: 20, delay: 2.5, tint: 'rgba(122,156,188,0.5)', glow: 'rgba(122,156,188,0.4)', rot: -8 },
+  { left: '92%', top: '34%', size: 44, duration: 13, delay: 0.5, tint: 'rgba(255,255,255,0.9)', glow: 'rgba(190,212,232,0.65)', rot: 11 },
+  { left: '3%', top: '40%', size: 50, duration: 18, delay: 3.5, tint: 'rgba(201,169,106,0.65)', glow: 'rgba(184,154,95,0.42)', rot: -12 },
+];
+
+const SPARKLES: Particle[] = [
+  { left: '18%', top: '22%', size: 4, duration: 4.5, delay: 0.4, tint: '#C9A96A' },
+  { left: '74%', top: '18%', size: 3, duration: 5.5, delay: 1.6, tint: '#4E729A' },
+  { left: '32%', top: '72%', size: 3, duration: 4, delay: 2.4, tint: '#C9A96A' },
+  { left: '66%', top: '68%', size: 4.5, duration: 6, delay: 0.9, tint: '#4E729A' },
+  { left: '10%', top: '52%', size: 3, duration: 5, delay: 3, tint: '#C9A96A' },
+  { left: '89%', top: '46%', size: 3.5, duration: 4.2, delay: 2, tint: '#4E729A' },
+  { left: '50%', top: '12%', size: 3, duration: 6.5, delay: 1.2, tint: '#C9A96A' },
+  { left: '38%', top: '92%', size: 3.5, duration: 5.2, delay: 3.4, tint: '#4E729A' },
+  { left: '82%', top: '86%', size: 3, duration: 4.8, delay: 0.2, tint: '#C9A96A' },
+  { left: '24%', top: '6%', size: 3, duration: 5.8, delay: 2.8, tint: '#4E729A' },
+];
+
 // Minimalist Vector Floral Cluster (Matching the graphic artwork in image_d36a38)
 function VectorFloralsLeft({ style }: { style?: CSSProperties }) {
   return (
@@ -127,20 +163,78 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-6px); }
         }
+        @keyframes env-drift {
+          0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)) scale(1); opacity: 0.55; }
+          50% { transform: translateY(-24px) rotate(calc(var(--r, 0deg) * -1)) scale(1.08); opacity: 1; }
+        }
+        @keyframes env-twinkle {
+          0%, 100% { opacity: 0.2; transform: scale(0.7); }
+          50% { opacity: 1; transform: scale(1.3); }
+        }
       `}</style>
 
-      <div className="relative z-10 flex flex-col items-center justify-center px-6">
+      {/* Ambient particles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        {HEARTS.map((p, i) => (
+          <svg
+            key={i}
+            viewBox="0 0 32 29"
+            className="absolute"
+            style={{
+              left: p.left,
+              top: p.top,
+              width: p.size,
+              height: (p.size * 29) / 32,
+              filter: `drop-shadow(0 0 8px ${p.glow})`,
+              ['--r' as string]: `${p.rot}deg`,
+              animation: `env-drift ${p.duration}s ease-in-out ${p.delay}s infinite`,
+            } as CSSProperties}
+            aria-hidden="true"
+          >
+            <path
+              d="M16 29C16 29 0 19.5 0 9.5 0 4.25 4.25 0 9.5 0 12.5 0 15 1.75 16 3.5 17 1.75 19.5 0 22.5 0 27.75 0 32 4.25 32 9.5 32 19.5 16 29 16 29Z"
+              fill={p.tint}
+            />
+            <path
+              d="M16 29C16 29 0 19.5 0 9.5 0 4.25 4.25 0 9.5 0 12.5 0 15 1.75 16 3.5 17 1.75 19.5 0 22.5 0 27.75 0 32 4.25 32 9.5 32 19.5 16 29 16 29Z"
+              fill="rgba(255,255,255,0.45)"
+              transform="translate(8.2, 4.2) scale(0.42)"
+            />
+          </svg>
+        ))}
+        {SPARKLES.map((p, i) => (
+          <div
+            key={`spark-${i}`}
+            className="absolute rounded-full"
+            style={{
+              left: p.left,
+              top: p.top,
+              width: p.size,
+              height: p.size,
+              background: p.tint,
+              boxShadow: `0 0 10px 2px ${p.tint === '#4E729A' ? 'rgba(78,114,154,0.55)' : 'rgba(184,154,95,0.6)'}`,
+              animation: `env-twinkle ${p.duration}s ease-in-out ${p.delay}s infinite`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center justify-center w-full px-4">
         {/* Header Copy */}
         <div
-          className="text-center mb-6 md:mb-10"
+          className="text-center"
           style={{
+            marginBottom: 'clamp(14px, 3.5vh, 40px)',
             opacity: phase === 'card-rise' || phase === 'fading' ? 0 : 1,
             transition: 'opacity 0.5s ease',
           }}
         >
           <h1
-            className="font-serif italic text-3xl md:text-5xl text-[#2B4663] tracking-wide mb-1"
-            style={{ textShadow: '0px 1px 2px rgba(255, 255, 255, 0.9)' }}
+            className="font-serif italic text-[#2B4663] tracking-wide mb-1"
+            style={{
+              fontSize: 'clamp(1.55rem, 7vw, 3rem)',
+              textShadow: '0px 1px 2px rgba(255, 255, 255, 0.9)',
+            }}
           >
             Love Led by Grace
           </h1>
@@ -157,8 +251,8 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
           <div
             className="relative rounded-sm shadow-[0_20px_50px_rgba(40,65,95,0.25)]"
             style={{
-              width: 'clamp(310px, 66vw, 480px)',
-              height: 'clamp(215px, 46vw, 330px)',
+              width: 'clamp(264px, min(66vw, 58vh), 480px)',
+              height: 'clamp(186px, min(46vw, 40vh), 330px)',
               animation: isAnimating ? 'none' : 'env-float 6s ease-in-out infinite',
               background: '#416388',
             }}
@@ -328,8 +422,9 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
 
         {/* Footer Copy */}
         <p
-          className="mt-8 md:mt-12 font-sans text-[#4A6785] text-[10px] md:text-xs tracking-[0.3em] uppercase font-semibold animate-pulse"
+          className="font-sans text-[#4A6785] text-[10px] md:text-xs tracking-[0.3em] uppercase font-semibold animate-pulse"
           style={{
+            marginTop: 'clamp(18px, 4.5vh, 48px)',
             opacity: isAnimating ? 0 : 1,
             transition: 'opacity 0.3s ease',
             textShadow: '0px 1px 1px rgba(255, 255, 255, 0.8)',

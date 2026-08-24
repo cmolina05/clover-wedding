@@ -48,7 +48,7 @@ export default function RSVPForm() {
           <h2 className="section-title text-letterpress">RSVP</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
           <p className="text-sm text-wedding-charcoal/60 font-sans mt-4">
-            Kindly respond by on or before <span className="text-dusty-blue-dark font-medium">{weddingConfig.rsvpDeadline}</span>
+            Kindly respond on or before <span className="text-dusty-blue-dark font-medium">{weddingConfig.rsvpDeadline}</span>
           </p>
         </div>
 

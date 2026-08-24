@@ -22,10 +22,13 @@ export default function FAQAccordion() {
                   }`}>
                 <button type="button" id={`faq-${idx}`}
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full text-left px-6 py-5 flex justify-between items-center gap-4 bg-wedding-ivory bg-paper-texture hover:bg-dusty-blue-mist transition-colors duration-300"
+                  className={`w-full text-left px-6 py-5 flex justify-between items-center gap-4 bg-wedding-ivory bg-paper-texture hover:bg-dusty-blue-mist transition-colors duration-300 ${isOpen ? 'bg-[#F2EEE2]' : ''
+                    }`}
                   aria-expanded={isOpen} aria-controls={`faq-panel-${idx}`}>
-                  <span className="font-serif text-base text-dusty-blue-800 leading-snug text-letterpress">{faq.question}</span>
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full border border-dusty-blue-dark/40 flex items-center justify-center text-dusty-blue-dark transition-transform duration-200"
+                  <span className={`font-serif text-base leading-snug text-letterpress transition-colors duration-300 ${isOpen ? 'text-dusty-blue-900' : 'text-dusty-blue-800'
+                    }`}>{faq.question}</span>
+                  <span className={`flex-shrink-0 w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${isOpen ? 'border-[#B9A26B] text-[#B9A26B] bg-white/60' : 'border-dusty-blue-dark/40 text-dusty-blue-dark'
+                    }`}
                     style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }} aria-hidden="true">
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16M4 12h16" />
@@ -34,10 +37,14 @@ export default function FAQAccordion() {
                 </button>
 
                 <div id={`faq-panel-${idx}`} role="region" aria-labelledby={`faq-${idx}`}
-                  className={`transition-all duration-200 ease-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-                  <p className="px-6 py-5 text-sm text-dusty-blue-700 leading-relaxed font-sans border-t border-dusty-blue-light/40 bg-wedding-white bg-paper-texture">
-                    {faq.answer}
-                  </p>
+                  className={`transition-all duration-300 ease-out ${isOpen ? 'max-h-[40rem] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                  <div className="relative border-t border-dusty-blue-light/40 bg-gradient-to-b from-[#DCE7F1]/80 to-[#EDF3F9]/80">
+                    <div className="absolute left-0 top-0 bottom-0 w-[3px]"
+                      style={{ background: 'linear-gradient(180deg, #C9A96A 0%, rgba(201,169,106,0.12) 100%)' }} />
+                    <p className="pl-7 pr-6 py-5 text-sm text-[#2C4A78] leading-relaxed font-sans">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
             );

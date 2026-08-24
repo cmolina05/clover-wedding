@@ -148,7 +148,7 @@ export default function Hero() {
             RSVP Now
           </a>
           <p className="mt-4 font-sans text-[10px] tracking-widest text-dusty-blue-700 uppercase drop-shadow-sm">
-            Kindly respond by {weddingConfig.rsvpDeadline}
+            Kindly respond by on or before {weddingConfig.rsvpDeadline}
           </p>
         </div>
       </div>

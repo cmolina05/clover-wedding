@@ -48,7 +48,7 @@ export default function RSVPForm() {
           <h2 className="section-title text-letterpress">RSVP</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
           <p className="text-sm text-wedding-charcoal/60 font-sans mt-4">
-            Kindly respond by <span className="text-dusty-blue-dark font-medium">{weddingConfig.rsvpDeadline}</span>
+            Kindly respond by on or before <span className="text-dusty-blue-dark font-medium">{weddingConfig.rsvpDeadline}</span>
           </p>
         </div>
 
@@ -94,11 +94,10 @@ export default function RSVPForm() {
                 <div className="grid grid-cols-2 gap-3">
                   {(['yes', 'no'] as const).map((val) => (
                     <button key={val} type="button" onClick={() => setFormData({ ...formData, attendance: val })}
-                      className={`py-3.5 text-[10px] tracking-[0.15em] uppercase font-sans transition-all duration-300 border rounded-sm ${
-                        formData.attendance === val
-                          ? 'bg-dusty-blue-dark text-wedding-white border-dusty-blue-dark'
-                          : 'border-dusty-blue-light text-wedding-charcoal/70 hover:border-dusty-blue hover:bg-dusty-blue-mist'
-                      }`}>
+                      className={`py-3.5 text-[10px] tracking-[0.15em] uppercase font-sans transition-all duration-300 border rounded-sm ${formData.attendance === val
+                        ? 'bg-dusty-blue-dark text-wedding-white border-dusty-blue-dark'
+                        : 'border-dusty-blue-light text-wedding-charcoal/70 hover:border-dusty-blue hover:bg-dusty-blue-mist'
+                        }`}>
                       {val === 'yes' ? "Joyfully accepts" : "Regretfully declines"}
                     </button>
                   ))}

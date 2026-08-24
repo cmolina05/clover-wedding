@@ -142,10 +142,14 @@ function sendDeclineThankYou(name, email) {
 }
 
 function notifyCouple(name, email, attending, message) {
-  var recipients = (typeof COUPLE_EMAILS === 'string' ? [COUPLE_EMAILS] : COUPLE_EMAILS)
+  var recipients = (typeof COUPLE_EMAILS === 'string' ? [COUPLE_EMAILS] : COUPLE_EMAILS || [])
     .map(function (e) { return String(e).trim(); })
     .filter(function (e) { return isValidEmail(e); });
-  if (!recipients.length) return;
+  console.log('notifyCouple: configured recipients = ' + JSON.stringify(COUPLE_EMAILS) + ', valid = ' + JSON.stringify(recipients));
+  if (!recipients.length) {
+    console.log('notifyCouple: SKIPPED \u2014 no valid recipient configured');
+    return;
+  }
   try {
     var status = attending === 'yes' ? 'ATTENDING' : 'DECLINED';
     var html =
@@ -161,9 +165,11 @@ function notifyCouple(name, email, attending, message) {
       'New RSVP from ' + name + ' (' + email + '): ' + status + '. Message: ' + message,
       { htmlBody: html }
     );
+    console.log('notifyCouple: SUCCESS \u2014 sent to ' + recipients.join(', '));
   } catch (err) {
     console.log('Couple notification failed: ' + err);
   }
+}
 }
 
 function isValidEmail(email) {
@@ -188,17 +194,17 @@ function json(obj) {
  * function dropdown, click Run, then check Execution log and your inbox.
  */
 function sendTestEmail() {
+  var me = '';
+  try { me = Session.getActiveUser().getEmail(); } catch (e) { me = '(unknown)'; }
   var targets = (typeof COUPLE_EMAILS === 'string' ? [COUPLE_EMAILS] : COUPLE_EMAILS || [])
     .map(function (e) { return String(e).trim(); })
     .filter(function (e) { return isValidEmail(e); });
-  console.log('Notification recipients configured: ' + JSON.stringify(targets));
+  console.log('Script owner account: ' + me);
+  console.log('COUPLE_EMAILS configured: ' + JSON.stringify(targets));
   try {
-    MailApp.sendEmail(
-      Session.getActiveUser().getEmail(),
-      'Wedding RSVP \u2014 test email',
-      'If you received this, outgoing mail works. Quota remaining today: ' + MailApp.getRemainingDailyQuota()
-    );
-    console.log('Test email sent to script owner. Remaining daily quota: ' + MailApp.getRemainingDailyQuota());
+    var quotaBefore = MailApp.getRemainingDailyQuota();
+    MailApp.sendEmail(me, 'Wedding RSVP \u2014 test email', 'If you received this, outgoing mail works.');
+    console.log('SUCCESS: test email sent TO YOUR OWN ACCOUNT (' + me + '). Quota used: ' + (quotaBefore - MailApp.getRemainingDailyQuota()));
   } catch (err) {
     console.log('TEST FAILED: ' + err);
   }

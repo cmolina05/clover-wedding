@@ -4,7 +4,7 @@ import { weddingConfig } from '../config/wedding';
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwBsOFqKu8cTmBPhL8mRjc_lu0A3onWd1njkz5w1v7v9x_JA9JAfedkvB94lFMXzX3L/exec";
 
 const inputClass =
-  "w-full px-4 py-3 text-sm border border-dusty-blue-light/80 bg-wedding-ivory/60 rounded-sm focus:outline-none focus:border-dusty-blue-dark focus:ring-0 transition-colors duration-300 font-sans text-wedding-charcoal placeholder:text-wedding-charcoal/30";
+  "w-full px-4 py-3 text-sm border border-dusty-blue-light/80 bg-white/70 rounded-sm focus:outline-none focus:border-dusty-blue-dark focus:ring-0 transition-colors duration-300 font-sans text-wedding-charcoal placeholder:text-wedding-charcoal/30";
 
 const labelClass =
   "block text-[10px] uppercase tracking-[0.2em] text-wedding-charcoal/70 mb-2 font-sans";
@@ -41,19 +41,19 @@ export default function RSVPForm() {
   };
 
   return (
-    <div className="py-28 px-6 bg-wedding-white bg-paper-texture">
+    <div className="py-28 px-6 veil-light">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16 reveal">
-          <p className="text-[10px] tracking-ultra uppercase text-wedding-gold font-sans mb-3">Join Us</p>
+          <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Join Us</p>
           <h2 className="section-title text-letterpress">RSVP</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
-          <p className="text-sm text-wedding-charcoal/60 font-sans mt-4">
-            Kindly respond on or before <span className="text-dusty-blue-dark font-medium">{weddingConfig.rsvpDeadline}</span>
+          <p className="text-sm text-white/75 font-sans mt-4">
+            Kindly respond on or before <span className="text-[#F7F4EC] font-semibold">{weddingConfig.rsvpDeadline}</span>
           </p>
         </div>
 
         {submitted ? (
-          <div className="reveal max-w-lg mx-auto text-center py-16 px-8 relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light rounded-sm shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)]">
+          <div className="reveal max-w-lg mx-auto text-center py-16 px-8 relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light rounded-sm shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)]">
             <div className="absolute inset-2 border border-dusty-blue-light/30 pointer-events-none rounded-sm" />
             <div className="relative z-10">
               <div className="w-14 h-14 rounded-full bg-dusty-blue-light/50 flex items-center justify-center mx-auto mb-6">
@@ -73,7 +73,7 @@ export default function RSVPForm() {
             </div>
           </div>
         ) : (
-          <div className="reveal max-w-lg mx-auto space-y-6 relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)] p-8">
+          <div className="reveal max-w-lg mx-auto space-y-6 relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)] p-8">
             <div className="absolute inset-2 border border-dusty-blue-light/30 pointer-events-none rounded-sm" />
 
             <div className="relative z-10 space-y-6">
@@ -115,7 +115,7 @@ export default function RSVPForm() {
 
               <button type="submit" disabled={loading} onClick={handleSubmit}
                 className="btn-shimmer w-full py-4 text-[11px] tracking-[0.2em] uppercase font-sans text-wedding-ivory transition-all duration-500 disabled:opacity-60 rounded-sm"
-                style={{ background: loading ? '#8FA9B8' : '#5F7D8C' }}>
+                style={{ background: loading ? '#8FA9B8' : '#5D7A9E' }}>
                 {loading ? 'Submitting…' : 'Submit RSVP'}
               </button>
 

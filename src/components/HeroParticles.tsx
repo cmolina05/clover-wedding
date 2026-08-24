@@ -16,7 +16,7 @@ const heroParticleOptions: ISourceOptions = {
       value: 45,
       density: { enable: true, width: 1200, height: 800 },
     },
-    color: { value: ['#ffffff', '#8FB0C0', '#B8CDD7'] },
+    color: { value: ['#ffffff', '#A9CBE9', '#BBD0E4'] },
     shape: { type: 'circle' },
     opacity: {
       value: { min: 0.15, max: 0.5 },

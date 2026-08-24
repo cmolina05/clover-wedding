@@ -26,10 +26,10 @@ export default function OurStory() {
   };
 
   return (
-    <div className="py-28 px-6 bg-wedding-ivory bg-paper-texture">
+    <div className="py-28 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20 reveal">
-          <p className="text-[10px] tracking-ultra uppercase text-wedding-gold font-sans mb-3">How It All Began</p>
+          <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">How It All Began</p>
           <h2 className="section-title text-letterpress">Our Story</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
         </div>
@@ -44,7 +44,7 @@ export default function OurStory() {
                 <div key={index}
                   className={`reveal reveal-delay-${Math.min(index + 1, 4)} md:flex items-center gap-8 ${isLeft ? '' : 'md:flex-row-reverse'}`}>
                   <div className={`flex-1 ${isLeft ? 'md:flex md:justify-end' : ''}`}>
-                    <div className={`card-lift relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)] overflow-hidden ${isLeft ? 'md:text-right' : ''} w-full md:max-w-lg`}>
+                    <div className={`card-lift relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)] overflow-hidden ${isLeft ? 'md:text-right' : ''} w-full md:max-w-lg`}>
                       <div className="absolute inset-2 border border-dusty-blue-light/20 pointer-events-none rounded-sm" />
 
                       {item.images && item.images.length > 0 && (

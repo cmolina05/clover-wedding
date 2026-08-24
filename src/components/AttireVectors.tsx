@@ -5,7 +5,7 @@ export const NinongVector: React.FC<React.SVGProps<SVGSVGElement>> = (props) => 
   <svg viewBox="20 15 80 120" className="w-full h-full" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g className="group-hover-sway">
       {/* Black Pants */}
-      <path d="M 45,75 L 75,75 L 75,135 L 62,135 L 62,95 L 58,95 L 58,135 L 45,135 Z" fill="#2B3338" />
+      <path d="M 45,75 L 75,75 L 75,135 L 62,135 L 62,95 L 58,95 L 58,135 L 45,135 Z" fill="#2C3E55" />
       
       {/* Barong Shirt */}
       {/* Left Sleeve */}
@@ -112,8 +112,8 @@ export const GentlemenVector: React.FC<React.SVGProps<SVGSVGElement>> = (props) 
   <svg viewBox="20 15 80 120" className="w-full h-full" xmlns="http://www.w3.org/2000/svg" {...props}>
     <defs>
       <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#E0F7FA" />
-        <stop offset="100%" stopColor="#B3E5FC" />
+        <stop offset="0%" stopColor="#EDF3F9" />
+        <stop offset="100%" stopColor="#A9CBE9" />
       </linearGradient>
     </defs>
     
@@ -123,21 +123,21 @@ export const GentlemenVector: React.FC<React.SVGProps<SVGSVGElement>> = (props) 
       
       {/* Shirt */}
       {/* Left Sleeve */}
-      <path d="M 44,32 L 28,60 L 34,63 L 45,43 Z" fill="url(#shirtGrad)" stroke="#607D8B" strokeWidth="0.8" />
+      <path d="M 44,32 L 28,60 L 34,63 L 45,43 Z" fill="url(#shirtGrad)" stroke="#5D7A9E" strokeWidth="0.8" />
       {/* Right Sleeve */}
-      <path d="M 76,32 L 92,60 L 86,63 L 75,43 Z" fill="url(#shirtGrad)" stroke="#607D8B" strokeWidth="0.8" />
+      <path d="M 76,32 L 92,60 L 86,63 L 75,43 Z" fill="url(#shirtGrad)" stroke="#5D7A9E" strokeWidth="0.8" />
       {/* Shirt Torso */}
-      <path d="M 44,32 L 76,32 L 74,75 L 46,75 Z" fill="url(#shirtGrad)" stroke="#607D8B" strokeWidth="0.8" />
+      <path d="M 44,32 L 76,32 L 74,75 L 46,75 Z" fill="url(#shirtGrad)" stroke="#5D7A9E" strokeWidth="0.8" />
       
       {/* Shirt Collar */}
-      <path d="M 50,32 L 60,38 L 70,32 L 67,35 L 53,35 Z" fill="#E0F7FA" stroke="#607D8B" strokeWidth="0.8" />
-      <path d="M 52,32 C 52,28 68,28 68,32 Z" fill="#B3E5FC" stroke="#607D8B" strokeWidth="0.8" />
+      <path d="M 50,32 L 60,38 L 70,32 L 67,35 L 53,35 Z" fill="#EDF3F9" stroke="#5D7A9E" strokeWidth="0.8" />
+      <path d="M 52,32 C 52,28 68,28 68,32 Z" fill="#A9CBE9" stroke="#5D7A9E" strokeWidth="0.8" />
       
       {/* Placket & Buttons */}
-      <line x1="60" y1="36" x2="60" y2="75" stroke="#78909C" strokeWidth="1" />
-      <circle cx="60" cy="45" r="1.2" fill="#37474F" />
-      <circle cx="60" cy="55" r="1.2" fill="#37474F" />
-      <circle cx="60" cy="65" r="1.2" fill="#37474F" />
+      <line x1="60" y1="36" x2="60" y2="75" stroke="#7E96AE" strokeWidth="1" />
+      <circle cx="60" cy="45" r="1.2" fill="#2C4A78" />
+      <circle cx="60" cy="55" r="1.2" fill="#2C4A78" />
+      <circle cx="60" cy="65" r="1.2" fill="#2C4A78" />
       
       {/* Brown Belt */}
       <rect x="46" y="74" width="28" height="3" fill="#6D4C41" />
@@ -152,36 +152,36 @@ export const LadiesVector: React.FC<React.SVGProps<SVGSVGElement>> = (props) => 
   <svg viewBox="20 15 80 120" className="w-full h-full" xmlns="http://www.w3.org/2000/svg" {...props}>
     <defs>
       <linearGradient id="dressGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#B0BEC5" />
-        <stop offset="50%" stopColor="#8EA7BF" />
+        <stop offset="0%" stopColor="#BBD0E4" />
+        <stop offset="50%" stopColor="#8CA3BC" />
         <stop offset="100%" stopColor="#6C88A3" />
       </linearGradient>
     </defs>
     
     <g className="group-hover-sway">
       {/* Dress bodice wrap style */}
-      <path d="M 44,32 L 76,32 C 74,48 68,60 67,65 L 53,65 C 52,60 46,48 44,32 Z" fill="url(#dressGrad)" stroke="#546E7A" strokeWidth="0.8" />
+      <path d="M 44,32 L 76,32 C 74,48 68,60 67,65 L 53,65 C 52,60 46,48 44,32 Z" fill="url(#dressGrad)" stroke="#4A6789" strokeWidth="0.8" />
       
       {/* Wrap neckline cross lines */}
-      <path d="M 44,32 L 63,65" stroke="#455A64" strokeWidth="0.8" />
-      <path d="M 76,32 L 57,65" stroke="#455A64" strokeWidth="0.8" />
+      <path d="M 44,32 L 63,65" stroke="#3A5A85" strokeWidth="0.8" />
+      <path d="M 76,32 L 57,65" stroke="#3A5A85" strokeWidth="0.8" />
       
       {/* Flutter sleeves */}
-      <path d="M 44,32 C 40,32 34,36 34,42 C 34,48 44,48 44,48 Z" fill="#8EA7BF" stroke="#546E7A" strokeWidth="0.8" />
-      <path d="M 76,32 C 80,32 86,36 86,42 C 86,48 76,48 76,48 Z" fill="#8EA7BF" stroke="#546E7A" strokeWidth="0.8" />
+      <path d="M 44,32 C 40,32 34,36 34,42 C 34,48 44,48 44,48 Z" fill="#8CA3BC" stroke="#4A6789" strokeWidth="0.8" />
+      <path d="M 76,32 C 80,32 86,36 86,42 C 86,48 76,48 76,48 Z" fill="#8CA3BC" stroke="#4A6789" strokeWidth="0.8" />
       
       {/* Wrap Skirt with Leg Slit (overlapping asymmetrical crossover hem) */}
       {/* Under layer (left side of skirt) */}
       <path d="M 53,65 L 67,65 Q 73,95 78,130 L 58,130 C 58,130 50,105 53,65 Z" fill="#6C88A3" opacity="0.7" />
       
       {/* Overlapping top layer with slit showing one leg */}
-      <path d="M 53,65 Q 60,65 67,65 C 67,65 74,90 78,130 L 42,130 C 37,115 45,95 53,65 Z" fill="url(#dressGrad)" stroke="#546E7A" strokeWidth="0.8" />
+      <path d="M 53,65 Q 60,65 67,65 C 67,65 74,90 78,130 L 42,130 C 37,115 45,95 53,65 Z" fill="url(#dressGrad)" stroke="#4A6789" strokeWidth="0.8" />
       
       {/* The slit line showing the front leg overlap */}
-      <path d="M 67,65 Q 52,95 42,130" stroke="#455A64" strokeWidth="0.8" />
+      <path d="M 67,65 Q 52,95 42,130" stroke="#3A5A85" strokeWidth="0.8" />
       
       {/* Pleats / Ruffles for flowy skirt */}
-      <path d="M 60,65 Q 64,95 68,130" fill="none" stroke="#546E7A" strokeWidth="0.8" opacity="0.6" />
+      <path d="M 60,65 Q 64,95 68,130" fill="none" stroke="#4A6789" strokeWidth="0.8" opacity="0.6" />
       
       {/* Sash Bow at waist */}
       <ellipse cx="60" cy="65" rx="7" ry="2" fill="#D4C3A3" stroke="#8A7B68" strokeWidth="0.8" />

@@ -23,8 +23,8 @@ export default function BackToTop() {
       aria-label="Back to top"
       className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full flex items-center justify-center shadow-card hover:shadow-card-hover transition-all duration-300 hover:scale-110 group"
       style={{
-        background: 'linear-gradient(135deg, #3D5A6B 0%, #5F7D8C 100%)',
-        border: '1px solid rgba(184,205,215,0.3)',
+        background: 'linear-gradient(135deg, #3A5A85 0%, #5D7A9E 100%)',
+        border: '1px solid rgba(187,208,228,0.3)',
         animation: 'fadeIn 0.3s ease',
       }}
     >

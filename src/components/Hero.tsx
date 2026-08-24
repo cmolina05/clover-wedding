@@ -50,12 +50,12 @@ export default function Hero() {
 
       {/* Deep dusty-blue overlay */}
       <div className="absolute inset-0" style={{
-        background: 'linear-gradient(to bottom, rgba(29,52,65,0.80) 0%, rgba(61,90,107,0.55) 48%, rgba(243,237,228,0.98) 100%)'
+        background: 'linear-gradient(to bottom, rgba(30,51,85,0.80) 0%, rgba(58,90,133,0.55) 48%, rgba(147,168,189,0.98) 100%)'
       }} />
 
       {/* Subtle blue vignette */}
       <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse at center, transparent 60%, rgba(29,52,65,0.30) 100%)'
+        background: 'radial-gradient(ellipse at center, transparent 60%, rgba(30,51,85,0.30) 100%)'
       }} />
 
       {/* Ornamental frame */}
@@ -105,7 +105,7 @@ export default function Hero() {
         {/* Countdown — cardstock blocks */}
         <div style={anim('0.9s')} className="mb-10">
           {isToday ? (
-            <h2 className="font-serif text-3xl text-dusty-blue tracking-widest text-letterpress">TODAY IS THE DAY</h2>
+            <h2 className="font-serif text-3xl text-wedding-white tracking-widest text-letterpress">TODAY IS THE DAY</h2>
           ) : (
             <>
               <div className="grid grid-cols-4 gap-3 max-w-sm mx-auto">
@@ -116,7 +116,7 @@ export default function Hero() {
                   { label: 'Sec', val: timeLeft.seconds },
                 ].map((item) => (
                   <div key={item.label}
-                    className="flex flex-col items-center py-4 px-2 rounded-sm bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)]">
+                    className="flex flex-col items-center py-4 px-2 rounded-sm bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)]">
                     <span className="font-serif text-dusty-blue-dark text-letterpress" style={{ fontSize: 'clamp(2rem, 4.5vw, 2.8rem)', lineHeight: 1, fontWeight: 300 }}>
                       {String(item.val).padStart(2, '0')}
                     </span>
@@ -142,12 +142,12 @@ export default function Hero() {
         <div style={anim('1.05s')}>
           <a href="#rsvp" id="hero-rsvp-btn"
             className="btn-shimmer rsvp-pulse inline-block px-14 py-4 text-[11px] tracking-[0.22em] uppercase font-sans text-wedding-white transition-all duration-500 rounded-sm"
-            style={{ background: 'linear-gradient(135deg, #3D5A6B 0%, #5F7D8C 100%)' }}
-            onMouseEnter={e => (e.currentTarget.style.background = 'linear-gradient(135deg, #2E4452 0%, #3D5A6B 100%)')}
-            onMouseLeave={e => (e.currentTarget.style.background = 'linear-gradient(135deg, #3D5A6B 0%, #5F7D8C 100%)')}>
+            style={{ background: 'linear-gradient(135deg, #3A5A85 0%, #5D7A9E 100%)' }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'linear-gradient(135deg, #2C4A78 0%, #3A5A85 100%)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'linear-gradient(135deg, #3A5A85 0%, #5D7A9E 100%)')}>
             RSVP Now
           </a>
-          <p className="mt-4 font-sans text-[10px] tracking-widest text-dusty-blue-700 uppercase drop-shadow-sm">
+          <p className="mt-4 font-sans text-[10px] tracking-widest text-white/80 uppercase drop-shadow-sm">
             Kindly respond on or before {weddingConfig.rsvpDeadline}
           </p>
         </div>
@@ -155,8 +155,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-dusty-blue-700/80">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-dusty-blue-700/70 to-transparent animate-pulse" />
+        <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-white/70">Scroll</span>
+        <div className="w-px h-8 bg-gradient-to-b from-white/70 to-transparent animate-pulse" />
       </div>
     </div>
   );

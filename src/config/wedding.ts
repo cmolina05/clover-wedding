@@ -255,8 +255,8 @@ export const weddingConfig: WeddingConfig = {
     compliance: "Strict compliance on dress code is asked. NO slippers, shorts, maong other informal outfits of any kind will be allowed.",
     swatches: [
       { name: "Silver Gray", hex: "#C5C9CE" },
-      { name: "Dusty Blue", hex: "#8EA7BF" },
-      { name: "Sky Blue", hex: "#A5D5F5" },
+      { name: "Dusty Blue", hex: "#8CA3BC" },
+      { name: "Sky Blue", hex: "#A9CBE9" },
       { name: "Deep Navy Blue", hex: "#3B6291" },
     ],
   },

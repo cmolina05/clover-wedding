@@ -22,7 +22,7 @@ export default function Preloader() {
     <div
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center"
       style={{
-        background: 'linear-gradient(180deg, #1C2D37 0%, #2E4452 100%)',
+        background: 'linear-gradient(180deg, #1E3355 0%, #2C4A78 100%)',
         opacity: fadeOut ? 0 : 1,
         transition: 'opacity 0.6s ease',
       }}
@@ -39,16 +39,16 @@ export default function Preloader() {
           transition: 'opacity 0.5s ease, transform 0.5s ease',
         }}
       >
-        <span style={{ color: '#8FB0C0' }}>{initials.split('&')[0]}</span>
-        <span className="italic mx-2" style={{ color: '#B8CDD7', fontSize: '0.6em' }}>&amp;</span>
-        <span style={{ color: '#8FB0C0' }}>{initials.split('&')[1]}</span>
+        <span style={{ color: '#A9CBE9' }}>{initials.split('&')[0]}</span>
+        <span className="italic mx-2" style={{ color: '#BBD0E4', fontSize: '0.6em' }}>&amp;</span>
+        <span style={{ color: '#A9CBE9' }}>{initials.split('&')[1]}</span>
       </div>
 
       {/* Thin line */}
       <div
         className="w-16 h-px mb-5"
         style={{
-          background: 'linear-gradient(90deg, transparent, #7A9BAD, transparent)',
+          background: 'linear-gradient(90deg, transparent, #7E96AE, transparent)',
           opacity: fadeOut ? 0 : 1,
           transition: 'opacity 0.4s ease 0.1s',
         }}
@@ -58,7 +58,7 @@ export default function Preloader() {
       <p
         className="font-sans text-[10px] tracking-[0.3em] uppercase"
         style={{
-          color: 'rgba(184,205,215,0.5)',
+          color: 'rgba(187,208,228,0.5)',
           opacity: fadeOut ? 0 : 1,
           transition: 'opacity 0.4s ease 0.2s',
         }}
@@ -73,7 +73,7 @@ export default function Preloader() {
             key={i}
             className="w-1 h-1 rounded-full"
             style={{
-              backgroundColor: '#7A9BAD',
+              backgroundColor: '#7E96AE',
               opacity: fadeOut ? 0 : 0.4,
               animation: `pulse 1.4s ease-in-out ${i * 0.2}s infinite`,
               transition: 'opacity 0.3s ease',

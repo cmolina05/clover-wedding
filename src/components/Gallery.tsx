@@ -19,10 +19,10 @@ export default function Gallery() {
   };
 
   return (
-    <div className="py-28 px-6 bg-wedding-ivory bg-paper-texture">
+    <div className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20 reveal">
-          <p className="text-[10px] tracking-ultra uppercase text-wedding-gold font-sans mb-3">Moments Captured</p>
+          <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Moments Captured</p>
           <h2 className="section-title text-letterpress">Gallery</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
         </div>
@@ -30,7 +30,7 @@ export default function Gallery() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {photos.map((photo, idx) => (
             <div key={idx} onClick={() => openModal(photo)}
-              className={`reveal reveal-delay-${Math.min((idx % 3) + 1, 4)} img-hover-zoom rounded-sm overflow-hidden cursor-pointer shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)] hover:shadow-[0_12px_40px_-4px_rgba(95,125,140,0.22)] transition-shadow duration-400 border border-dusty-blue-light/30 ${idx === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
+              className={`reveal reveal-delay-${Math.min((idx % 3) + 1, 4)} img-hover-zoom rounded-sm overflow-hidden cursor-pointer shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)] hover:shadow-[0_24px_54px_-14px_rgba(30,51,85,0.46)] transition-shadow duration-400 border border-dusty-blue-light/30 ${idx === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
               style={{ aspectRatio: idx === 0 ? '4/3' : '1/1' }}>
               <img src={photo.src} alt={photo.alt} loading="lazy" className="w-full h-full object-cover" style={{ minHeight: '200px' }} />
             </div>

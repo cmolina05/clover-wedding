@@ -38,7 +38,7 @@ interface DetailCardProps {
 
 function DetailCard({ label, time, venue, address, mapsUrl, embedUrl, delay }: DetailCardProps) {
   return (
-    <div className={`reveal reveal-delay-${delay} card-lift group relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)] overflow-hidden`}>
+    <div className={`reveal reveal-delay-${delay} card-lift group relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)] overflow-hidden`}>
       {/* Inner hairline border */}
       <div className="absolute inset-2 border border-dusty-blue-light/30 pointer-events-none rounded-sm" />
 
@@ -95,10 +95,10 @@ export default function WeddingDetails() {
   const transportIcons: Record<string, React.ReactNode> = { car: carIcon, bus: busIcon };
 
   return (
-    <div className="py-28 px-6 bg-wedding-white bg-paper-texture">
+    <div className="py-28 px-6 veil-light">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20 reveal">
-          <p className="text-[10px] tracking-ultra uppercase text-wedding-gold font-sans mb-3">Save the Date</p>
+          <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Save the Date</p>
           <h2 className="section-title text-letterpress">Wedding Details</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
         </div>
@@ -109,10 +109,10 @@ export default function WeddingDetails() {
         </div>
 
         <div>
-          <h3 className="font-serif text-2xl text-dusty-blue-dark mb-8 text-center reveal text-letterpress" style={{ fontWeight: 400 }}>How to Get Here</h3>
+          <h3 className="font-serif text-2xl text-wedding-white mb-8 text-center reveal text-letterpress" style={{ fontWeight: 400 }}>How to Get Here</h3>
           <div className="grid md:grid-cols-2 gap-4">
             {weddingConfig.travel.transportation.map((item, idx) => (
-              <div key={idx} className={`reveal reveal-delay-${Math.min(idx + 1, 4)} relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/50 rounded-sm p-6 flex gap-4 shadow-[0_8px_30px_-4px_rgba(95,125,140,0.15)]`}>
+              <div key={idx} className={`reveal reveal-delay-${Math.min(idx + 1, 4)} relative bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/50 rounded-sm p-6 flex gap-4 shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)]`}>
                 <div className="absolute inset-2 border border-dusty-blue-light/20 pointer-events-none rounded-sm" />
                 <span className="text-dusty-blue flex-shrink-0 mt-0.5">{transportIcons[item.icon] || carIcon}</span>
                 <div className="relative z-10">

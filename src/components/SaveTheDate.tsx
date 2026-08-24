@@ -43,47 +43,47 @@ export default function SaveTheDate() {
           id="save-the-date-card"
           className="reveal relative mx-auto max-w-md overflow-hidden rounded-sm shadow-card"
           style={{
-            background: 'linear-gradient(160deg, #1C2D37 0%, #2E4452 40%, #3D5A6B 100%)',
-            border: '1px solid rgba(184,205,215,0.2)',
+            background: 'linear-gradient(160deg, #1E3355 0%, #2C4A78 40%, #3A5A85 100%)',
+            border: '1px solid rgba(187,208,228,0.2)',
           }}
         >
           {/* Corner accents */}
-          <div className="absolute top-4 left-4 w-8 h-8 border-t border-l" style={{ borderColor: 'rgba(184,205,215,0.25)' }} />
-          <div className="absolute top-4 right-4 w-8 h-8 border-t border-r" style={{ borderColor: 'rgba(184,205,215,0.25)' }} />
-          <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l" style={{ borderColor: 'rgba(184,205,215,0.25)' }} />
-          <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r" style={{ borderColor: 'rgba(184,205,215,0.25)' }} />
+          <div className="absolute top-4 left-4 w-8 h-8 border-t border-l" style={{ borderColor: 'rgba(187,208,228,0.25)' }} />
+          <div className="absolute top-4 right-4 w-8 h-8 border-t border-r" style={{ borderColor: 'rgba(187,208,228,0.25)' }} />
+          <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l" style={{ borderColor: 'rgba(187,208,228,0.25)' }} />
+          <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r" style={{ borderColor: 'rgba(187,208,228,0.25)' }} />
 
           <div className="px-10 py-14 relative z-10">
-            <p className="font-sans text-[9px] tracking-[0.35em] uppercase mb-6" style={{ color: 'rgba(184,205,215,0.5)' }}>
+            <p className="font-sans text-[9px] tracking-[0.35em] uppercase mb-6" style={{ color: 'rgba(187,208,228,0.5)' }}>
               Together with their families
             </p>
 
-            <h3 className="font-serif text-5xl md:text-6xl mb-1" style={{ fontWeight: 300, color: '#EBF4F7', letterSpacing: '0.04em' }}>
+            <h3 className="font-serif text-5xl md:text-6xl mb-1" style={{ fontWeight: 300, color: '#EDF3F9', letterSpacing: '0.04em' }}>
               {groom}
             </h3>
             <p className="font-serif italic text-2xl my-2" style={{ fontWeight: 300, color: '#B7A27A', letterSpacing: '0.2em' }}>
               &amp;
             </p>
-            <h3 className="font-serif text-5xl md:text-6xl mb-8" style={{ fontWeight: 300, color: '#EBF4F7', letterSpacing: '0.04em' }}>
+            <h3 className="font-serif text-5xl md:text-6xl mb-8" style={{ fontWeight: 300, color: '#EDF3F9', letterSpacing: '0.04em' }}>
               {bride}
             </h3>
 
             {/* Divider */}
             <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="w-12 h-px" style={{ background: 'rgba(184,205,215,0.3)' }} />
+              <div className="w-12 h-px" style={{ background: 'rgba(187,208,228,0.3)' }} />
               <div className="w-1.5 h-1.5 rotate-45" style={{ background: '#B7A27A' }} />
-              <div className="w-12 h-px" style={{ background: 'rgba(184,205,215,0.3)' }} />
+              <div className="w-12 h-px" style={{ background: 'rgba(187,208,228,0.3)' }} />
             </div>
 
-            <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(184,205,215,0.5)' }}>
+            <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: 'rgba(187,208,228,0.5)' }}>
               Are getting married
             </p>
 
-            <p className="font-serif text-xl tracking-wide" style={{ fontWeight: 300, color: '#EBF4F7' }}>
+            <p className="font-serif text-xl tracking-wide" style={{ fontWeight: 300, color: '#EDF3F9' }}>
               {weddingConfig.dateFormatted}
             </p>
 
-            <p className="font-serif italic text-sm mt-8" style={{ fontWeight: 300, color: 'rgba(184,205,215,0.4)' }}>
+            <p className="font-serif italic text-sm mt-8" style={{ fontWeight: 300, color: 'rgba(187,208,228,0.4)' }}>
               {hashtag}
             </p>
           </div>

@@ -40,11 +40,9 @@ const SPARKLES: Particle[] = [
   { left: '24%', top: '6%', size: 3, duration: 5.8, delay: 2.8, tint: '#A9CBE9' },
 ];
 
-// Minimalist Vector Floral Cluster (Matching the graphic artwork in image_d36a38)
 function VectorFloralsLeft({ style }: { style?: CSSProperties }) {
   return (
     <svg viewBox="0 0 160 280" fill="none" style={style} className="pointer-events-none drop-shadow-md">
-      {/* Green Stems */}
       <path d="M120 270 L15 10" stroke="#4B6E52" strokeWidth="2.5" strokeLinecap="round" />
       <path d="M100 260 L45 30" stroke="#3D5C43" strokeWidth="2" strokeLinecap="round" />
       <ellipse cx="20" cy="20" rx="8" ry="4" fill="#6B8E70" transform="rotate(-30 20 20)" />
@@ -52,21 +50,18 @@ function VectorFloralsLeft({ style }: { style?: CSSProperties }) {
       <ellipse cx="25" cy="235" rx="10" ry="5" fill="#6B8E70" transform="rotate(25 25 235)" />
       <ellipse cx="12" cy="255" rx="8" ry="4" fill="#597C5E" transform="rotate(35 12 255)" />
 
-      {/* Top Small Ivory Rose */}
       <g transform="translate(68, 48)">
         <circle cx="0" cy="0" r="18" fill="#F4F1EA" />
         <circle cx="0" cy="0" r="12" fill="#E8E2D5" />
         <circle cx="0" cy="0" r="6" fill="#D6CBB5" />
       </g>
 
-      {/* Small Slate Blue Rose */}
       <g transform="translate(82, 98)">
         <circle cx="0" cy="0" r="15" fill="#4B6F96" />
         <circle cx="0" cy="0" r="9" fill="#325073" />
         <circle cx="0" cy="0" r="4" fill="#1E3652" />
       </g>
 
-      {/* Main Large Deep Blue Rose */}
       <g transform="translate(62, 155)">
         <circle cx="0" cy="0" r="32" fill="#2D4D73" />
         <circle cx="0" cy="0" r="23" fill="#1C3654" />
@@ -74,14 +69,12 @@ function VectorFloralsLeft({ style }: { style?: CSSProperties }) {
         <circle cx="0" cy="0" r="6" fill="#0A1726" />
       </g>
 
-      {/* Medium Blue Rose */}
       <g transform="translate(78, 218)">
         <circle cx="0" cy="0" r="22" fill="#436790" />
         <circle cx="0" cy="0" r="14" fill="#2B496E" />
         <circle cx="0" cy="0" r="7" fill="#1A314D" />
       </g>
 
-      {/* Bottom Ivory Rose */}
       <g transform="translate(85, 262)">
         <circle cx="0" cy="0" r="16" fill="#F4F1EA" />
         <circle cx="0" cy="0" r="10" fill="#E8E2D5" />
@@ -94,13 +87,11 @@ function VectorFloralsLeft({ style }: { style?: CSSProperties }) {
 function VectorFloralsRight({ style }: { style?: CSSProperties }) {
   return (
     <svg viewBox="0 0 160 220" fill="none" style={style} className="pointer-events-none drop-shadow-md">
-      {/* Gold/Green Stems */}
       <path d="M20 200 L110 30" stroke="#527054" strokeWidth="2" strokeLinecap="round" />
       <path d="M30 200 L145 70" stroke="#CBB36B" strokeWidth="2" strokeLinecap="round" />
       <circle cx="110" cy="28" r="3.5" fill="#D4B653" />
       <circle cx="145" cy="68" r="3.5" fill="#D4B653" />
 
-      {/* Ivory Anthurium Leaves */}
       <g transform="translate(72, 110) rotate(-18)">
         <path d="M0 0 C-22 -30 0 -58 28 -36 C56 -58 78 -30 56 0 C34 26 22 30 0 0 Z" fill="#FAF8F3" />
         <path d="M28 -40 L28 -2" stroke="#D9B74A" strokeWidth="3" strokeLinecap="round" />
@@ -111,20 +102,85 @@ function VectorFloralsRight({ style }: { style?: CSSProperties }) {
         <path d="M22 -32 L22 -2" stroke="#D9B74A" strokeWidth="2.5" strokeLinecap="round" />
       </g>
 
-      {/* Blue Rose Accent */}
       <g transform="translate(108, 185)">
         <circle cx="0" cy="0" r="24" fill="#3B5E87" />
         <circle cx="0" cy="0" r="15" fill="#244263" />
         <circle cx="0" cy="0" r="7" fill="#13273D" />
       </g>
 
-      {/* Small Sky Blue Accent Flower */}
       <g transform="translate(148, 195)">
         <circle cx="-5" cy="-5" r="5" fill="#A8C8EA" />
         <circle cx="5" cy="-5" r="5" fill="#A8C8EA" />
         <circle cx="0" cy="4" r="5" fill="#88B0DA" />
         <circle cx="0" cy="-2" r="2" fill="#FFFFFF" />
       </g>
+    </svg>
+  );
+}
+
+interface ButterflyColors {
+  light: string;
+  mid: string;
+  deep: string;
+}
+
+function Butterfly({ id, size, flapDuration, colors }: { id: string; size: number; flapDuration: number; colors: ButterflyColors }) {
+  const fw = `url(#${id}-fw)`;
+  const hw = `url(#${id}-hw)`;
+  const flap = `${flapDuration}s ease-in-out infinite`;
+
+  return (
+    <svg
+      width={size}
+      height={size * (40 / 48)}
+      viewBox="0 0 48 40"
+      style={{
+        filter: 'drop-shadow(0 4px 9px rgba(30,51,85,0.22))',
+        animation: `env-bob ${flap}`,
+      }}
+    >
+      <defs>
+        <linearGradient id={`${id}-fw`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor={colors.light} />
+          <stop offset="55%" stopColor={colors.mid} />
+          <stop offset="100%" stopColor={colors.deep} />
+        </linearGradient>
+        <linearGradient id={`${id}-hw`} x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0%" stopColor={colors.mid} />
+          <stop offset="100%" stopColor={colors.deep} />
+        </linearGradient>
+      </defs>
+
+      {/* Left wings (fold toward body line at x=24) */}
+      <g style={{ transformOrigin: '24px 20px', animation: `env-flap ${flap}` }}>
+        <path d="M23 19.5 C16.5 6 5 2 3 9 C1.5 14.5 11.5 21 22.5 21 Z" fill={fw} opacity="0.97" />
+        <path d="M22.5 21 C13 20.5 5.5 24.5 7.5 30 C9.5 35 19 31.5 23 23.5 Z" fill={hw} opacity="0.92" />
+        <path d="M21.5 19.5 C17 14 11.5 9.5 6.5 8.5" stroke="rgba(61,77,99,0.32)" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+        <path d="M21.5 20.5 C16 19 10 21 8 25" stroke="rgba(61,77,99,0.26)" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+        <circle cx="9.5" cy="10.5" r="1.7" fill="#FFFFFF" opacity="0.75" />
+        <circle cx="13.5" cy="14.5" r="1" fill="#FFFFFF" opacity="0.55" />
+      </g>
+
+      {/* Right wings */}
+      <g style={{ transformOrigin: '24px 20px', animation: `env-flap ${flap}` }}>
+        <path d="M25 19.5 C31.5 6 43 2 45 9 C46.5 14.5 36.5 21 25.5 21 Z" fill={fw} opacity="0.97" />
+        <path d="M25.5 21 C35 20.5 42.5 24.5 40.5 30 C38.5 35 29 31.5 25 23.5 Z" fill={hw} opacity="0.92" />
+        <path d="M26.5 19.5 C31 14 36.5 9.5 41.5 8.5" stroke="rgba(61,77,99,0.32)" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+        <path d="M26.5 20.5 C32 19 38 21 40 25" stroke="rgba(61,77,99,0.26)" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+        <circle cx="38.5" cy="10.5" r="1.7" fill="#FFFFFF" opacity="0.75" />
+        <circle cx="34.5" cy="14.5" r="1" fill="#FFFFFF" opacity="0.55" />
+      </g>
+
+      {/* Body + head */}
+      <ellipse cx="24" cy="21.5" rx="1.7" ry="7" fill="#3D4D63" />
+      <ellipse cx="24" cy="19.5" rx="1.1" ry="4" fill="#556A85" opacity="0.85" />
+      <circle cx="24" cy="13.5" r="2" fill="#3D4D63" />
+
+      {/* Antennae with curled tips */}
+      <path d="M23.3 12 C21.5 8.5 19.5 6.8 17 6.4" stroke="#3D4D63" strokeWidth="0.9" fill="none" strokeLinecap="round" />
+      <path d="M24.7 12 C26.5 8.5 28.5 6.8 31 6.4" stroke="#3D4D63" strokeWidth="0.9" fill="none" strokeLinecap="round" />
+      <circle cx="17" cy="6.4" r="0.9" fill="#3D4D63" />
+      <circle cx="31" cy="6.4" r="0.9" fill="#3D4D63" />
     </svg>
   );
 }
@@ -170,6 +226,41 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
         @keyframes env-twinkle {
           0%, 100% { opacity: 0.2; transform: scale(0.7); }
           50% { opacity: 1; transform: scale(1.3); }
+        }
+        @keyframes env-flap {
+          0%, 100% { transform: scaleX(1) scaleY(1); }
+          50% { transform: scaleX(0.3) scaleY(1.06); }
+        }
+        @keyframes env-bob {
+          0%, 100% { transform: translateY(1px); }
+          50% { transform: translateY(-1.5px); }
+        }
+        @keyframes env-hover-a {
+          0%, 100% { transform: translate(0, 0); }
+          22% { transform: translate(2.5vw, -6vh); }
+          48% { transform: translate(-2vw, -2.5vh); }
+          72% { transform: translate(1.5vw, 4.5vh); }
+          88% { transform: translate(-1vw, 1vh); }
+        }
+        @keyframes env-hover-b {
+          0%, 100% { transform: translate(0, 0); }
+          25% { transform: translate(-2.5vw, -5vh); }
+          52% { transform: translate(2vw, -1.5vh); }
+          78% { transform: translate(-1.5vw, 4vh); }
+        }
+        @keyframes env-hover-c {
+          0%, 100% { transform: translate(0, 0); }
+          30% { transform: translate(2vw, -4vh); }
+          62% { transform: translate(-2.5vw, 0.5vh); }
+          85% { transform: translate(1vw, 3.5vh); }
+        }
+        @keyframes env-sway {
+          0%, 100% { transform: rotate(3deg) scale(1); }
+          33% { transform: rotate(-5deg) scale(1.03); }
+          66% { transform: rotate(6deg) scale(0.99); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .env-butterfly { display: none; }
         }
       `}</style>
 
@@ -217,6 +308,57 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
             }}
           />
         ))}
+      </div>
+
+      {/* Butterflies — hovering in closed loops near the envelope, layered motion: hover drift, banking sway, wing flap */}
+      <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden" aria-hidden="true">
+        {/* Butterfly 1 (Gold/Champagne) — right of envelope */}
+        <div
+          className="env-butterfly absolute"
+          style={{
+            top: '36%',
+            left: 'calc(50% + clamp(150px, min(30vw, 27vh), 270px))',
+            marginLeft: -32,
+          }}
+        >
+          <div style={{ animation: 'env-hover-a 12s ease-in-out -3s infinite', willChange: 'transform' }}>
+            <div style={{ animation: 'env-sway 4.6s ease-in-out -1s infinite' }}>
+              <Butterfly id="bfly-gold" size={64} flapDuration={1.05} colors={{ light: '#F7E7BE', mid: '#EACD8F', deep: '#D2A75C' }} />
+            </div>
+          </div>
+        </div>
+
+        {/* Butterfly 2 (Soft Blue) — upper-left of envelope */}
+        <div
+          className="env-butterfly absolute"
+          style={{
+            top: '27%',
+            left: 'calc(50% - clamp(170px, min(34vw, 30vh), 290px))',
+            marginLeft: -26,
+          }}
+        >
+          <div style={{ animation: 'env-hover-b 14s ease-in-out -6s infinite', willChange: 'transform' }}>
+            <div style={{ animation: 'env-sway 3.8s ease-in-out -1.2s infinite' }}>
+              <Butterfly id="bfly-blue" size={52} flapDuration={0.9} colors={{ light: '#DCEBFA', mid: '#B7D3EE', deep: '#8FB4DE' }} />
+            </div>
+          </div>
+        </div>
+
+        {/* Butterfly 3 (Pale Ivory-Blue, distant) — lower-left of envelope */}
+        <div
+          className="env-butterfly absolute"
+          style={{
+            top: '57%',
+            left: 'calc(50% - clamp(160px, min(32vw, 28vh), 280px))',
+            marginLeft: -21,
+          }}
+        >
+          <div style={{ animation: 'env-hover-c 16s ease-in-out -9s infinite', willChange: 'transform' }}>
+            <div style={{ animation: 'env-sway 5.4s ease-in-out -2s infinite' }}>
+              <Butterfly id="bfly-pale" size={42} flapDuration={1.25} colors={{ light: '#F4F7FB', mid: '#D8E4F2', deep: '#AFC8E4' }} />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center w-full px-4">

@@ -267,7 +267,6 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
         }
         .env-dog {
           position: absolute;
-          top: 50%;
           height: clamp(150px, min(34vh, 26vw), 280px);
         }
         .env-dog img {
@@ -277,12 +276,12 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
           filter: drop-shadow(0 10px 18px rgba(20,40,65,0.35));
           animation: env-dog-bob 5.2s ease-in-out infinite;
         }
-        .env-dog-left { right: calc(50% + clamp(140px, min(30vw, 26vh), 240px)); transform: translateY(-32%); }
-        .env-dog-right { left: calc(50% + clamp(140px, min(30vw, 26vh), 240px)); transform: translateY(-32%); }
+        .env-dog-left { right: calc(50% + clamp(140px, min(30vw, 26vh), 240px)); top: 40%; transform: translateY(20%); }
+        .env-dog-right { left: calc(50% + clamp(140px, min(30vw, 26vh), 240px)); top: 40%; transform: translateY(20%); }
         @media (max-width: 640px) {
           .env-dog { height: clamp(90px, 26vw, 130px); }
-          .env-dog-left { right: calc(50% + 31vw); transform: translateY(-32%); }
-          .env-dog-right { left: calc(50% + 31vw); transform: translateY(-32%); }
+          .env-dog-left { right: calc(50% + 31vw); top: 50%; transform: translateY(20%); }
+          .env-dog-right { left: calc(50% + 31vw); top: 50%; transform: translateY(20%); }
         }
         @media (prefers-reduced-motion: reduce) {
           .env-butterfly { display: none; }

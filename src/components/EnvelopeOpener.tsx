@@ -294,7 +294,7 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
           className="absolute"
           style={{
             top: '50%',
-            left: 'calc(50% + clamp(200px, min(30vw, 26vh), 280px))',
+            left: 'calc(50% + clamp(170px, min(30vw, 26vh), 280px))',
             height: 'clamp(150px, min(34vh, 26vw), 280px)',
             width: 'auto',
             transform: 'translateY(-32%)',

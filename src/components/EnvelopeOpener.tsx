@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react';
 import type { CSSProperties } from 'react';
 import { weddingConfig } from '../config/wedding';
+import bellaImg from '../assets/bella.png';
+import maxieImg from '../assets/maxie.png';
 
 type Phase = 'idle' | 'seal-pop' | 'flap-open' | 'card-rise' | 'fading';
 
@@ -259,10 +261,48 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
           33% { transform: rotate(-5deg) scale(1.03); }
           66% { transform: rotate(6deg) scale(0.99); }
         }
+        @keyframes env-dog-bob {
+          0%, 100% { transform: translateY(0) rotate(-1deg); }
+          50% { transform: translateY(-7px) rotate(1.5deg); }
+        }
         @media (prefers-reduced-motion: reduce) {
           .env-butterfly { display: none; }
         }
       `}</style>
+
+      {/* Dogs — Maxie & Bella sitting on either side of the envelope */}
+      <div className="absolute inset-0 pointer-events-none z-[15] overflow-hidden" aria-hidden="true">
+        {/* Bella — left of envelope, facing inward */}
+        <img
+          src={bellaImg}
+          alt=""
+          className="absolute"
+          style={{
+            top: '50%',
+            right: 'calc(50% + clamp(140px, min(30vw, 26vh), 240px))',
+            height: 'clamp(150px, min(34vh, 26vw), 280px)',
+            width: 'auto',
+            transform: 'translateY(-32%) scaleX(-1)',
+            filter: 'drop-shadow(0 10px 18px rgba(20,40,65,0.35))',
+            animation: 'env-dog-bob 5.2s ease-in-out infinite',
+          }}
+        />
+        {/* Maxie — right of envelope, facing inward */}
+        <img
+          src={maxieImg}
+          alt=""
+          className="absolute"
+          style={{
+            top: '50%',
+            left: 'calc(50% + clamp(200px, min(30vw, 26vh), 280px))',
+            height: 'clamp(150px, min(34vh, 26vw), 280px)',
+            width: 'auto',
+            transform: 'translateY(-32%)',
+            filter: 'drop-shadow(0 10px 18px rgba(20,40,65,0.35))',
+            animation: 'env-dog-bob 5.2s ease-in-out -2.6s infinite',
+          }}
+        />
+      </div>
 
       {/* Ambient particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">

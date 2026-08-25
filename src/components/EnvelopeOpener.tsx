@@ -265,6 +265,25 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
           0%, 100% { transform: translateY(0) rotate(-1deg); }
           50% { transform: translateY(-7px) rotate(1.5deg); }
         }
+        .env-dog {
+          position: absolute;
+          top: 50%;
+          height: clamp(150px, min(34vh, 26vw), 280px);
+        }
+        .env-dog img {
+          height: 100%;
+          width: auto;
+          display: block;
+          filter: drop-shadow(0 10px 18px rgba(20,40,65,0.35));
+          animation: env-dog-bob 5.2s ease-in-out infinite;
+        }
+        .env-dog-left { right: calc(50% + clamp(140px, min(30vw, 26vh), 240px)); transform: translateY(-32%); }
+        .env-dog-right { left: calc(50% + clamp(140px, min(30vw, 26vh), 240px)); transform: translateY(-32%); }
+        @media (max-width: 640px) {
+          .env-dog { height: clamp(90px, 26vw, 130px); }
+          .env-dog-left { right: calc(50% + 31vw); transform: translateY(-32%); }
+          .env-dog-right { left: calc(50% + 31vw); transform: translateY(-32%); }
+        }
         @media (prefers-reduced-motion: reduce) {
           .env-butterfly { display: none; }
         }
@@ -273,35 +292,13 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
       {/* Dogs — Maxie & Bella sitting on either side of the envelope */}
       <div className="absolute inset-0 pointer-events-none z-[15] overflow-hidden" aria-hidden="true">
         {/* Bella — left of envelope, facing inward */}
-        <img
-          src={bellaImg}
-          alt=""
-          className="absolute"
-          style={{
-            top: '50%',
-            right: 'calc(50% + clamp(140px, min(30vw, 26vh), 240px))',
-            height: 'clamp(150px, min(34vh, 26vw), 280px)',
-            width: 'auto',
-            transform: 'translateY(-32%) scaleX(-1)',
-            filter: 'drop-shadow(0 10px 18px rgba(20,40,65,0.35))',
-            animation: 'env-dog-bob 5.2s ease-in-out infinite',
-          }}
-        />
+        <div className="env-dog env-dog-left">
+          <img src={bellaImg} alt="" />
+        </div>
         {/* Maxie — right of envelope, facing inward */}
-        <img
-          src={maxieImg}
-          alt=""
-          className="absolute"
-          style={{
-            top: '50%',
-            left: 'calc(50% + clamp(170px, min(30vw, 26vh), 280px))',
-            height: 'clamp(150px, min(34vh, 26vw), 280px)',
-            width: 'auto',
-            transform: 'translateY(-32%)',
-            filter: 'drop-shadow(0 10px 18px rgba(20,40,65,0.35))',
-            animation: 'env-dog-bob 5.2s ease-in-out -2.6s infinite',
-          }}
-        />
+        <div className="env-dog env-dog-right">
+          <img src={maxieImg} alt="" style={{ animationDelay: '-2.6s' }} />
+        </div>
       </div>
 
       {/* Ambient particles */}
@@ -418,7 +415,7 @@ export default function EnvelopeOpener({ onComplete }: { onComplete: () => void 
               textShadow: '0px 1px 3px rgba(44, 74, 120, 0.45)',
             }}
           >
-            Love Led by Grace
+            You are cordially invited
           </h1>
           <p
             className="font-sans text-[11px] md:text-xs tracking-[0.35em] text-[#F7F4EC]/85 uppercase font-semibold"

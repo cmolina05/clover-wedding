@@ -134,9 +134,9 @@ export default function App() {
           <p className="text-sm leading-relaxed font-sans max-w-lg mx-auto" style={{ color: 'rgba(247, 244, 236, 0.75)' }}>
             Your presence, love, and support mean everything to us. We are truly grateful to share this memorable step of our journey alongside our dearest family and friends.
           </p>
-          <div className="ornament mt-8">
+          {/* <div className="ornament mt-8">
             <div className="ornament-diamond" />
-          </div>
+          </div> */}
         </div>
       </section>
 

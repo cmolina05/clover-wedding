@@ -64,7 +64,7 @@ export default function OurStory() {
                           {item.images.slice(0, 4).map((src, imgIdx) => (
                             <div key={imgIdx} className="aspect-square overflow-hidden cursor-pointer"
                               onClick={() => openLightbox(item.images!, imgIdx, item.title)}>
-                              <img src={getImageUrl(src)} alt={`${item.title} ${imgIdx + 1}`} loading="lazy"
+                              <img src={getImageUrl(src)} alt={`${item.title} ${imgIdx + 1}`} loading="lazy" decoding="async" fetchPriority={index === 0 && imgIdx === 0 ? "high" : "auto"}
                                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
                             </div>
                           ))}
@@ -126,6 +126,7 @@ export default function OurStory() {
           <div className="relative max-w-[85vw] max-h-[80vh]" onClick={(e) => e.stopPropagation()}
             style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.4s ease' }}>
             <img src={getImageUrl(lightbox.images[lightbox.index])} alt={lightbox.title} onLoad={() => setImgLoaded(true)}
+              loading="lazy" decoding="async"
               className="max-w-full max-h-[80vh] rounded-sm shadow-2xl object-contain border border-dusty-blue-light/20" />
             <p className="mt-3 text-center text-[10px] tracking-widest uppercase text-wedding-white/40 font-sans">
               {lightbox.title} — {lightbox.index + 1}/{lightbox.images.length}

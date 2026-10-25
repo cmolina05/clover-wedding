@@ -173,12 +173,6 @@ export const weddingConfig: WeddingConfig = {
         "../assets/prenup/6.jpg",
         "../assets/prenup/7.jpg",
         "../assets/prenup/8.jpg",
-        "../assets/prenup/9.jpg",
-        "../assets/prenup/10.jpg",
-        "../assets/prenup/11.jpg",
-        "../assets/prenup/12.jpg",
-        "../assets/prenup/13.jpg",
-        "../assets/prenup/14.jpg",
       ],
     },
     // {

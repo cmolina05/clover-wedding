@@ -1,4 +1,3 @@
-
 import { weddingConfig } from '../config/wedding';
 import { LadiesGroup, GentlemenGroup, NinongFigure, NinangFigure } from './AttireGroups';
 
@@ -66,12 +65,12 @@ export default function DressCode() {
           </div>
         </div>
 
-        {/* Mobile figures — kept together beneath the Guest text since the side rails are hidden below md */}
+        {/* Mobile figures — all four share one height so Ninong/Ninang match the Gentlemen/Ladies groups */}
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 max-w-xs mx-auto mt-4 md:hidden">
-          <div className="max-w-[100px] mx-auto self-end"><NinongFigure /></div>
-          <div className="max-w-[100px] mx-auto self-end"><NinangFigure /></div>
-          <div className="max-w-[125px] mx-auto self-end"><GentlemenGroup /></div>
-          <div className="max-w-[125px] mx-auto self-end"><LadiesGroup /></div>
+          <div className="flex justify-center items-end"><NinongFigure className="h-[135px] w-auto" /></div>
+          <div className="flex justify-center items-end"><NinangFigure className="h-[135px] w-auto" /></div>
+          <div className="flex justify-center items-end"><GentlemenGroup className="h-[135px] w-auto" /></div>
+          <div className="flex justify-center items-end"><LadiesGroup className="h-[135px] w-auto" /></div>
         </div>
 
         {/* Color Palette Swatches */}

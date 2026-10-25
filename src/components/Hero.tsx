@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { weddingConfig } from '../config/wedding';
 import HeroParticles from './HeroParticles';
-import hero1 from '../assets/Hero1.jpg';
+
+const hero1 = `${import.meta.env.BASE_URL}Hero1.jpg`;
 
 interface TimeLeft { days: number; hours: number; minutes: number; seconds: number; }
 

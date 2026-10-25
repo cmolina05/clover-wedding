@@ -194,13 +194,14 @@ export const weddingConfig: WeddingConfig = {
     // },
   ],
   program: [
-    { time: "3:00 PM", event: "Wedding Ceremony" },
-    { time: "5:00 PM", event: "Cocktail Hour" },
-    { time: "6:00 PM", event: "Reception Entrance" },
-    { time: "7:00 PM", event: "Dinner & Toasts" },
-    { time: "8:00 PM", event: "Program & Speeches" },
-    { time: "9:00 PM", event: "First Dance" },
-    { time: "9:30 PM", event: "Cake Cutting & Celebration" },
+    { time: "2:00 PM", event: "Wedding Ceremony" },
+    { time: "3:00 PM", event: "Pre-Program Activities" },
+    { time: "4:00 PM", event: "Program Proper" },
+    { time: "5:00 PM", event: "Wedding Traditions" },
+    { time: "6:00 PM", event: "Buffet Time" },
+    { time: "7:00 PM", event: "Games & Raffle" },
+    { time: "8:00 PM", event: "Thank You Message" },
+    { time: "9:00 PM", event: "Closing Ceremony" },
   ],
   entourage: [
     {

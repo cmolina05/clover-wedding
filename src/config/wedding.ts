@@ -87,7 +87,7 @@ export const weddingConfig: WeddingConfig = {
   couple: {
     groom: "Carlo",
     bride: "Roseth",
-    hashtag: "#CarloAndRoseth2026",
+    hashtag: "#aMagiCARLOvewithROSETH",
   },
   date: "2026-12-15T15:00:00+08:00",
   dateFormatted: "December 15, 2026",

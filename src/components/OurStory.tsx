@@ -12,7 +12,7 @@ const getImageUrl = (src: string): string => {
   if (/^(https?:|\/\/|data:)/i.test(src)) {
     return src;
   }
-  const cleaned = src.replace(/^(\.\.\/|\.\/|\/)+/, '');
+  const cleaned = src.replace(/^public\//, '').replace(/^(\.\.\/|\.\/|\/)+/, '');
   const base = (import.meta.env.BASE_URL || '/').replace(/^\/|\/$/g, '');
   if (base && (cleaned === base || cleaned.startsWith(base + '/'))) {
     return `/${cleaned}`;

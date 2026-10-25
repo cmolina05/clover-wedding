@@ -1,12 +1,24 @@
 import { useState } from 'react';
 
+const getImageUrl = (src: string): string => {
+  if (/^(https?:|\/\/|data:)/i.test(src)) {
+    return src;
+  }
+  const cleaned = src.replace(/^public\//, '').replace(/^(\.\.\/|\.\/|\/)+/, '');
+  const base = (import.meta.env.BASE_URL || '/').replace(/^\/|\/$/g, '');
+  if (base && (cleaned === base || cleaned.startsWith(base + '/'))) {
+    return `/${cleaned}`;
+  }
+  return `${import.meta.env.BASE_URL}${cleaned}`;
+};
+
 const photos = [
-  { src: 'public/assets/gallery/1.jpg', alt: 'Couple with a horse' },
-  { src: 'public/assets/gallery/2.jpg', alt: 'Couple in the forest' },
-  { src: 'public/assets/gallery/3.jpg', alt: 'Bride and Groom' },
-  { src: 'public/assets/gallery/4.jpg', alt: 'Couple in the mountains' },
-  { src: 'public/assets/gallery/5.jpg', alt: 'Couple portrait' },
-  { src: 'public/assets/gallery/6.jpg', alt: 'Bride and Groom' },
+  { src: 'assets/gallery/1.jpg', alt: 'Couple with a horse' },
+  { src: 'assets/gallery/2.jpg', alt: 'Couple in the forest' },
+  { src: 'assets/gallery/3.jpg', alt: 'Bride and Groom' },
+  { src: 'assets/gallery/4.jpg', alt: 'Couple in the mountains' },
+  { src: 'assets/gallery/5.jpg', alt: 'Couple portrait' },
+  { src: 'assets/gallery/6.jpg', alt: 'Bride and Groom' },
 ];
 
 export default function Gallery() {
@@ -32,7 +44,7 @@ export default function Gallery() {
             <div key={idx} onClick={() => openModal(photo)}
               className={`reveal reveal-delay-${Math.min((idx % 3) + 1, 4)} img-hover-zoom rounded-sm overflow-hidden cursor-pointer shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)] hover:shadow-[0_24px_54px_-14px_rgba(30,51,85,0.46)] transition-shadow duration-400 border border-dusty-blue-light/30 ${idx === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
               style={{ aspectRatio: idx === 0 ? '4/3' : '1/1' }}>
-              <img src={photo.src} alt={photo.alt} loading="lazy" className="w-full h-full object-cover" style={{ minHeight: '200px' }} />
+              <img src={getImageUrl(photo.src)} alt={photo.alt} loading="lazy" className="w-full h-full object-cover" style={{ minHeight: '200px' }} />
             </div>
           ))}
         </div>
@@ -50,7 +62,7 @@ export default function Gallery() {
           </button>
           <div className="relative" onClick={(e) => e.stopPropagation()}
             style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.4s ease' }}>
-            <img src={selectedImg.src} alt={selectedImg.alt} onLoad={() => setImgLoaded(true)}
+            <img src={getImageUrl(selectedImg.src)} alt={selectedImg.alt} onLoad={() => setImgLoaded(true)}
               className="max-w-[90vw] max-h-[85vh] rounded-sm shadow-2xl object-contain border border-dusty-blue-light/20" />
             <p className="mt-3 text-center text-[10px] tracking-widest uppercase text-wedding-white/40 font-sans">{selectedImg.alt}</p>
           </div>

@@ -1,4 +1,3 @@
-
 import { weddingConfig } from '../config/wedding';
 
 function CalendarIcon() {
@@ -22,6 +21,15 @@ function MapPinIcon() {
     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  );
+}
+
+function EnvelopeIcon() {
+  return (
+    <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="M3 7.5A1.5 1.5 0 014.5 6h15A1.5 1.5 0 0121 7.5v9a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 16.5v-9z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="M3.5 7.5l8.5 6 8.5-6" />
     </svg>
   );
 }
@@ -94,6 +102,8 @@ export default function WeddingDetails() {
   );
   const transportIcons: Record<string, React.ReactNode> = { car: carIcon, bus: busIcon };
 
+  const invitePdf = `${import.meta.env.BASE_URL}e-invites.pdf`;
+
   return (
     <div className="py-28 px-6 veil-light">
       <div className="max-w-5xl mx-auto">
@@ -101,6 +111,53 @@ export default function WeddingDetails() {
           <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Save the Date</p>
           <h2 className="section-title text-letterpress">Wedding Details</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
+        </div>
+
+        {/* E-Invite card */}
+        <div className="mb-14 reveal">
+          <div className="card-lift relative max-w-3xl mx-auto bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)] overflow-hidden">
+            <div className="h-[2px] bg-gold-gradient" />
+            <div className="absolute inset-2 top-3 border border-dusty-blue-light/30 pointer-events-none rounded-sm" />
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 px-8 py-9 md:px-12 md:py-10 text-center md:text-left">
+              {/* Envelope badge */}
+              <div className="flex-shrink-0 relative">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-dusty-blue-dark to-dusty-blue flex items-center justify-center text-wedding-white shadow-[0_10px_24px_-8px_rgba(30,51,85,0.55)]">
+                  <EnvelopeIcon />
+                </div>
+                <div className="absolute -inset-1.5 rounded-full border border-wedding-gold/50 pointer-events-none" />
+              </div>
+
+              {/* Copy */}
+              <div className="flex-grow">
+                <p className="text-[9px] tracking-ultra uppercase text-wedding-gold font-sans mb-2">E-Invite</p>
+                <h3 className="font-serif text-2xl md:text-3xl text-dusty-blue-dark mb-2 text-letterpress" style={{ fontWeight: 400 }}>
+                  Our Digital Invitation
+                </h3>
+                <p className="text-xs text-wedding-charcoal/65 font-sans leading-relaxed max-w-sm mx-auto md:mx-0">
+                  Everything about our special day in one place. Open it to read online, or save a copy to your phone.
+                </p>
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-col gap-3 w-full md:w-auto flex-shrink-0">
+                <a href={invitePdf} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 text-[10px] tracking-widest uppercase font-sans bg-dusty-blue-dark text-wedding-white hover:bg-wedding-charcoal transition-all duration-400 py-3 px-7 rounded-sm">
+                  View Invitation
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <a href={invitePdf} download="Carlo-and-Roseth-E-Invite.pdf"
+                  className="inline-flex items-center justify-center gap-2 text-[10px] tracking-widest uppercase font-sans border border-dusty-blue-dark/60 text-dusty-blue-dark hover:bg-dusty-blue-dark hover:text-wedding-white transition-all duration-400 py-3 px-7 rounded-sm">
+                  Download PDF
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">

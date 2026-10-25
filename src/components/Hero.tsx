@@ -56,7 +56,14 @@ export default function Hero() {
       {/* Background photo — parallax (oversized so no gap appears) */}
       <div className="absolute left-0 right-0 -top-[20%] h-[120%] will-change-transform"
         style={{ transform: `translateY(${parallaxY}px)` }}>
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${hero1})` }} />
+        <img
+          src={hero1}
+          alt=""
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
       </div>
 
       <HeroParticles />

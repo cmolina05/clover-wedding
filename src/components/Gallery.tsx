@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 const photos = [
-  { src: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=900', alt: 'Wedding couple in embrace' },
-  { src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=900', alt: 'Ceremony aisle' },
-  { src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=900', alt: 'Couple portrait' },
-  { src: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&q=80&w=900', alt: 'Wedding flowers' },
-  { src: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&q=80&w=900', alt: 'Reception decor' },
-  { src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=900', alt: 'Wedding rings' },
+  { src: 'public/assets/gallery/1.jpg', alt: 'Couple with a horse' },
+  { src: 'public/assets/gallery/2.jpg', alt: 'Couple in the forest' },
+  { src: 'public/assets/gallery/3.jpg', alt: 'Bride and Groom' },
+  { src: 'public/assets/gallery/4.jpg', alt: 'Couple in the mountains' },
+  { src: 'public/assets/gallery/5.jpg', alt: 'Couple portrait' },
+  { src: 'public/assets/gallery/6.jpg', alt: 'Bride and Groom' },
 ];
 
 export default function Gallery() {

@@ -152,44 +152,60 @@ export default function App() {
       <Registry />
 
       {/* ─── Footer ──────────────────────────────────────────── */}
-      <footer className="py-12 sm:py-16 md:py-20 text-center relative overflow-hidden bg-paper-texture" style={{ background: 'linear-gradient(180deg, #1E3355 0%, #2C4A78 100%)' }}>
+      <footer className="py-16 sm:py-20 md:py-24 text-center relative overflow-hidden bg-paper-texture" style={{ background: 'linear-gradient(180deg, #1E3355 0%, #2C4A78 100%)' }}>
+        {/* Background photo with atmospheric overlay */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img
+            src={`${import.meta.env.BASE_URL}assets/prenup/1.jpg`}
+            alt={`${weddingConfig.couple.groom} & ${weddingConfig.couple.bride}`}
+            className="w-full h-full object-cover object-center opacity-30 filter brightness-95 contrast-105"
+            loading="lazy"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(180deg, rgba(30,51,85,0.85) 0%, rgba(23,40,68,0.80) 50%, rgba(44,74,120,0.92) 100%)',
+            }}
+          />
+        </div>
+
         {/* Blue gradient top accent */}
-        <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #3A5A85, #7E96AE, #BBD0E4, #7E96AE, #3A5A85)' }} />
+        <div className="absolute top-0 left-0 right-0 h-[2px] z-10" style={{ background: 'linear-gradient(90deg, #3A5A85, #7E96AE, #BBD0E4, #7E96AE, #3A5A85)' }} />
 
         {/* Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none parallax-watermark" aria-hidden="true">
-          <span className="font-serif animate-float" style={{ fontSize: 'clamp(6rem, 15vw, 12rem)', letterSpacing: '-0.02em', color: 'rgba(126,150,174,0.06)' }}>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none parallax-watermark z-0" aria-hidden="true">
+          <span className="font-serif animate-float" style={{ fontSize: 'clamp(6rem, 15vw, 12rem)', letterSpacing: '-0.02em', color: 'rgba(126,150,174,0.08)' }}>
             Forever
           </span>
         </div>
 
         <div className="relative z-10">
-          <p className="text-[10px] tracking-ultra uppercase font-sans mb-4" style={{ color: '#7E96AE' }}>{weddingConfig.dateFormatted}</p>
+          <p className="text-[10px] tracking-ultra uppercase font-sans mb-4" style={{ color: '#A9CBE9' }}>{weddingConfig.dateFormatted}</p>
 
           <h3 className="font-serif text-4xl md:text-5xl mb-3 text-letterpress-dark" style={{ fontWeight: 300, letterSpacing: '0.05em', color: '#EDF3F9' }}>
             {weddingConfig.couple.groom} <span className="italic" style={{ color: '#BBD0E4' }}>&</span> {weddingConfig.couple.bride}
           </h3>
 
-          <p className="font-serif italic text-sm mb-10" style={{ fontWeight: 300, color: 'rgba(126,150,174,0.65)' }}>
+          <p className="font-serif italic text-sm mb-10" style={{ fontWeight: 300, color: 'rgba(187,208,228,0.75)' }}>
             {weddingConfig.couple.hashtag}
           </p>
 
           <div className="flex justify-center gap-3 mb-12">
-            <div className="w-10 h-px" style={{ background: 'rgba(126,150,174,0.35)' }} />
-            <div className="w-1.5 h-1.5 rotate-45" style={{ background: 'rgba(126,150,174,0.55)' }} />
-            <div className="w-10 h-px" style={{ background: 'rgba(126,150,174,0.35)' }} />
+            <div className="w-10 h-px" style={{ background: 'rgba(187,208,228,0.45)' }} />
+            <div className="w-1.5 h-1.5 rotate-45" style={{ background: 'rgba(187,208,228,0.65)' }} />
+            <div className="w-10 h-px" style={{ background: 'rgba(187,208,228,0.45)' }} />
           </div>
 
-          <p className="text-[10px] tracking-ultra uppercase font-sans mb-6" style={{ color: 'rgba(187,208,228,0.25)' }}>
+          <p className="text-[10px] tracking-ultra uppercase font-sans mb-6" style={{ color: 'rgba(187,208,228,0.35)' }}>
             With love, always.
           </p>
 
           <button
             onClick={() => setIsAdminOpen(true)}
             className="text-[9px] tracking-ultra uppercase font-sans transition-colors"
-            style={{ color: 'rgba(126,150,174,0.2)' }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'rgba(187,208,228,0.6)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(126,150,174,0.2)')}
+            style={{ color: 'rgba(187,208,228,0.25)' }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'rgba(187,208,228,0.7)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(187,208,228,0.25)')}
           >
             Admin Portal
           </button>

@@ -38,9 +38,9 @@ export default function OurStory() {
   };
 
   return (
-    <div className="py-28 px-6">
+    <div className="py-10 sm:py-16 md:py-28 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20 reveal">
+        <div className="text-center mb-10 sm:mb-14 md:mb-20 reveal">
           <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">How It All Began</p>
           <h2 className="section-title text-letterpress">Our Story</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
@@ -49,7 +49,7 @@ export default function OurStory() {
         <div className="relative">
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-dusty-blue-light to-transparent hidden md:block" />
 
-          <div className="space-y-16">
+          <div className="space-y-10 sm:space-y-14 md:space-y-16">
             {weddingConfig.story.map((item, index) => {
               const isLeft = index % 2 === 0;
               return (

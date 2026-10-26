@@ -41,9 +41,9 @@ export default function RSVPForm() {
   };
 
   return (
-    <div className="py-28 px-6 veil-light">
+    <div className="py-10 sm:py-16 md:py-28 px-4 sm:px-6 veil-light">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16 reveal">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 reveal">
           <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Join Us</p>
           <h2 className="section-title text-letterpress">RSVP</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>

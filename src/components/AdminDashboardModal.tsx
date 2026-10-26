@@ -40,7 +40,7 @@ export default function AdminDashboardModal({ onClose }: { onClose: () => void }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-wedding-charcoal/60 backdrop-blur-sm p-4">
-      <div className="bg-wedding-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 border border-dusty-blue-light">
+      <div className="bg-wedding-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 border border-dusty-blue-light text-wedding-charcoal">
         <div className="flex justify-between items-center mb-6">
           <h2 className="font-serif text-2xl text-dusty-blue-dark">RSVP Admin Dashboard</h2>
           <button onClick={onClose} className="text-wedding-charcoal hover:text-dusty-blue-dark text-xl font-bold">&times;</button>
@@ -53,7 +53,7 @@ export default function AdminDashboardModal({ onClose }: { onClose: () => void }
               type="password"
               value={key}
               onChange={(e) => setKey(e.target.value)}
-              className="w-full px-4 py-2 border border-dusty-blue-light rounded-sm text-sm"
+              className="w-full px-4 py-2 border border-dusty-blue-light rounded-sm text-sm bg-white text-wedding-charcoal focus:outline-none focus:ring-1 focus:ring-dusty-blue-dark"
             />
             <button
               onClick={() => fetchDashboardData(key)}
@@ -83,26 +83,52 @@ export default function AdminDashboardModal({ onClose }: { onClose: () => void }
 
             {/* Responses Table */}
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse">
+              <table className="w-full text-left text-xs border-collapse text-wedding-charcoal">
                 <thead>
-                  <tr className="border-b border-dusty-blue-light text-dusty-blue-dark uppercase tracking-wider">
-                    <th className="py-2 px-3">Name</th>
-                    <th className="py-2 px-3">Status</th>
-                    <th className="py-2 px-3">Message</th>
+                  <tr className="border-b border-dusty-blue-light text-dusty-blue-dark uppercase tracking-wider font-semibold">
+                    <th className="py-2.5 px-3">Name</th>
+                    <th className="py-2.5 px-3">Status</th>
+                    <th className="py-2.5 px-3">Message</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-dusty-blue-light/40">
-                  {data?.rsvps.map((rsvp, idx) => (
-                    <tr key={idx} className="hover:bg-wedding-ivory/50">
-                      <td className="py-2.5 px-3 font-medium">{rsvp.fullName}</td>
-                      <td className="py-2.5 px-3">
-                        <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] ${rsvp.attending === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                          {rsvp.attending}
-                        </span>
+                  {data?.rsvps && data.rsvps.length > 0 ? (
+                    data.rsvps.map((rsvp, idx) => (
+                      <tr key={idx} className="hover:bg-wedding-ivory/50 transition-colors">
+                        <td className="py-2.5 px-3 font-medium text-wedding-charcoal">
+                          <div>{rsvp.fullName}</div>
+                          {rsvp.email && (
+                            <div className="text-[10px] text-wedding-charcoal/60 font-normal">
+                              {rsvp.email}
+                            </div>
+                          )}
+                        </td>
+                        <td className="py-2.5 px-3">
+                          <span
+                            className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-medium ${
+                              rsvp.attending === 'Yes'
+                                ? 'bg-green-100 text-green-800'
+                                : 'bg-red-100 text-red-800'
+                            }`}
+                          >
+                            {rsvp.attending}
+                          </span>
+                        </td>
+                        <td
+                          className="py-2.5 px-3 text-wedding-charcoal/80 max-w-xs break-words"
+                          title={rsvp.message}
+                        >
+                          {rsvp.message || <span className="italic text-wedding-charcoal/40">No message</span>}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={3} className="py-8 text-center text-wedding-charcoal/60 italic">
+                        No responses received yet.
                       </td>
-                      <td className="py-2.5 px-3 truncate max-w-xs">{rsvp.message}</td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>

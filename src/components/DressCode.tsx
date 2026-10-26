@@ -5,10 +5,10 @@ const { dressCode } = weddingConfig;
 
 export default function DressCode() {
   return (
-    <div className="py-28 px-6 veil-deep relative overflow-hidden" id="attire">
+    <div className="py-10 sm:py-16 md:py-28 px-4 sm:px-6 veil-deep relative overflow-hidden" id="attire">
       <div className="max-w-6xl mx-auto relative z-10">
 
-        <div className="text-center mb-14 reveal">
+        <div className="text-center mb-8 sm:mb-12 md:mb-14 reveal">
           <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Attire Guide</p>
           <h2 className="section-title text-letterpress">Dress Code</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>

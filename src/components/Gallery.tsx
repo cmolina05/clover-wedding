@@ -31,9 +31,9 @@ export default function Gallery() {
   };
 
   return (
-    <div className="py-28 px-6">
+    <div className="py-10 sm:py-16 md:py-28 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20 reveal">
+        <div className="text-center mb-10 sm:mb-14 md:mb-20 reveal">
           <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Moments Captured</p>
           <h2 className="section-title text-letterpress">Gallery</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>

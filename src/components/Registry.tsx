@@ -3,19 +3,19 @@ import { weddingConfig } from '../config/wedding';
 
 export default function Registry() {
   return (
-    <div className="py-28 px-6 relative overflow-hidden">
+    <div className="py-10 sm:py-16 md:py-28 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #F7F4EC 1px, transparent 0)', backgroundSize: '28px 28px' }}
         aria-hidden="true" />
 
       <div className="max-w-2xl mx-auto text-center relative z-10">
-        <div className="reveal mb-16">
+        <div className="reveal mb-8 sm:mb-12 md:mb-16">
           <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Bless the Couple</p>
           <h2 className="section-title text-letterpress">Gift &amp; Registry</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
         </div>
 
-        <div className="reveal mb-12">
+        <div className="reveal mb-6 sm:mb-10 md:mb-12">
           <div className="relative inline-block border border-dusty-blue-light/50 rounded-sm px-8 py-6 bg-wedding-ivory bg-paper-texture shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)] max-w-lg">
             <div className="absolute inset-2 border border-dusty-blue-light/20 pointer-events-none rounded-sm" />
             <p className="font-serif italic text-lg text-dusty-blue-dark leading-relaxed relative z-10 text-letterpress" style={{ fontWeight: 300 }}>

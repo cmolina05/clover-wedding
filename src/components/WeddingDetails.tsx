@@ -105,16 +105,16 @@ export default function WeddingDetails() {
   const invitePdf = `${import.meta.env.BASE_URL}e-invites.pdf`;
 
   return (
-    <div className="py-28 px-6 veil-light">
+    <div className="py-10 sm:py-16 md:py-28 px-4 sm:px-6 veil-light">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20 reveal">
+        <div className="text-center mb-10 sm:mb-14 md:mb-20 reveal">
           <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">Save the Date</p>
           <h2 className="section-title text-letterpress">Wedding Details</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>
         </div>
 
         {/* E-Invite card */}
-        <div className="mb-14 reveal">
+        <div className="mb-8 sm:mb-12 md:mb-14 reveal">
           <div className="card-lift relative max-w-3xl mx-auto bg-wedding-ivory bg-paper-texture border border-dusty-blue-light/60 rounded-sm shadow-[0_18px_44px_-12px_rgba(30,51,85,0.38)] overflow-hidden">
             <div className="h-[2px] bg-gold-gradient" />
             <div className="absolute inset-2 top-3 border border-dusty-blue-light/30 pointer-events-none rounded-sm" />

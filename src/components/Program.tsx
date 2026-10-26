@@ -3,7 +3,7 @@ import { weddingConfig } from '../config/wedding';
 
 export default function Program() {
   return (
-    <div className="py-28 px-6 relative overflow-hidden">
+    <div className="py-10 sm:py-16 md:py-28 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none parallax-watermark" aria-hidden="true">
         <span className="font-serif text-white/[0.07] leading-none animate-float"
           style={{ fontSize: 'clamp(8rem, 20vw, 16rem)', fontWeight: 300, letterSpacing: '-0.02em' }}>
@@ -12,7 +12,7 @@ export default function Program() {
       </div>
 
       <div className="max-w-2xl mx-auto relative z-10">
-        <div className="text-center mb-20 reveal">
+        <div className="text-center mb-10 sm:mb-14 md:mb-20 reveal">
           <p className="text-[10px] tracking-ultra uppercase text-[#E7DCC2] font-sans mb-3">The Order of Events</p>
           <h2 className="section-title text-letterpress">Wedding Program</h2>
           <div className="ornament mt-4"><div className="ornament-diamond" /></div>

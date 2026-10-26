@@ -123,12 +123,12 @@ export default function App() {
       <section id="home"><Hero /></section>
 
       {/* Welcome interlude */}
-      <section className="py-24 px-6">
+      <section className="py-10 sm:py-16 md:py-24 px-4 sm:px-6">
         <div className="max-w-2xl mx-auto text-center reveal">
-          <div className="ornament">
+          <div className="ornament mb-4 sm:mb-6 md:mb-10">
             <div className="ornament-diamond" />
           </div>
-          <p className="font-serif italic text-2xl md:text-3xl leading-relaxed mb-5 text-letterpress" style={{ fontWeight: 300, color: '#F7F4EC' }}>
+          <p className="font-serif italic text-2xl md:text-3xl leading-relaxed mb-4 sm:mb-5 text-letterpress" style={{ fontWeight: 300, color: '#F7F4EC' }}>
             "With joyful hearts, we invite you to celebrate the beginning of our forever."
           </p>
           <p className="text-sm leading-relaxed font-sans max-w-lg mx-auto" style={{ color: 'rgba(247, 244, 236, 0.75)' }}>
@@ -152,7 +152,7 @@ export default function App() {
       <Registry />
 
       {/* ─── Footer ──────────────────────────────────────────── */}
-      <footer className="py-20 text-center relative overflow-hidden bg-paper-texture" style={{ background: 'linear-gradient(180deg, #1E3355 0%, #2C4A78 100%)' }}>
+      <footer className="py-12 sm:py-16 md:py-20 text-center relative overflow-hidden bg-paper-texture" style={{ background: 'linear-gradient(180deg, #1E3355 0%, #2C4A78 100%)' }}>
         {/* Blue gradient top accent */}
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #3A5A85, #7E96AE, #BBD0E4, #7E96AE, #3A5A85)' }} />
 

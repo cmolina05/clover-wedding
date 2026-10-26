@@ -217,6 +217,8 @@ export const weddingConfig: WeddingConfig = {
     {
       category: "Principal Sponsors",
       members: [
+        { name: "Ms. Ma. Lourdes Brillantes", role: "Sponsor" },
+        { name: "Mr. Alex Brillantes Jr.", role: "Sponsor" },
         { name: "Ms. Maribel Comia", role: "Sponsor" },
         { name: "Mr. Guillermo Walinsundin", role: "Sponsor" },
         { name: "Ms. Ailyn Pacio", role: "Sponsor" },

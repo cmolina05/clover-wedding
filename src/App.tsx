@@ -156,7 +156,7 @@ export default function App() {
         {/* Background photo with atmospheric overlay */}
         <div className="absolute inset-0 pointer-events-none">
           <img
-            src={`${import.meta.env.BASE_URL}assets/prenup/1.jpg`}
+            src={`${import.meta.env.BASE_URL}assets/prenup/9.jpg`}
             alt={`${weddingConfig.couple.groom} & ${weddingConfig.couple.bride}`}
             className="w-full h-full object-cover object-center opacity-30 filter brightness-95 contrast-105"
             loading="lazy"

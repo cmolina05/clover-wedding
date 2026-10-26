@@ -158,7 +158,7 @@ export default function App() {
           <img
             src={`${import.meta.env.BASE_URL}assets/prenup/9.jpg`}
             alt={`${weddingConfig.couple.groom} & ${weddingConfig.couple.bride}`}
-            className="w-full h-full object-cover object-center opacity-30 filter brightness-95 contrast-105"
+            className="w-full h-full object-cover object-center opacity-75 filter brightness-95 contrast-105"
             loading="lazy"
           />
           <div

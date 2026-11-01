@@ -17,6 +17,7 @@ import AmbientHearts from './components/AmbientHearts';
 import MusicPlayer from './components/MusicPlayer';
 import Hashtag from './components/Hashtag';
 import BackToTop from './components/BackToTop';
+import SaveTheDate from './components/SaveTheDate';
 import AdminDashboardModal from './components/AdminDashboardModal';
 
 export default function App() {
@@ -35,6 +36,7 @@ export default function App() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
+    { name: 'Save the Date', href: '#save-the-date' },
     { name: 'Our Story', href: '#story' },
     { name: 'Details', href: '#details' },
     { name: 'Entourage', href: '#entourage' },
@@ -102,7 +104,7 @@ export default function App() {
         {/* Mobile dropdown */}
         <div
           className="md:hidden overflow-hidden transition-all duration-400"
-          style={{ maxHeight: mobileMenuOpen ? '300px' : '0' }}
+          style={{ maxHeight: mobileMenuOpen ? '360px' : '0' }}
         >
           <div className="bg-[#6C859D]/95 bg-paper-texture backdrop-blur-md border-t border-white/10 px-6 py-4 space-y-1">
             {navLinks.map((link) => (
@@ -139,6 +141,9 @@ export default function App() {
           </div> */}
         </div>
       </section>
+
+      {/* Save the Date video section */}
+      <section id="save-the-date"><SaveTheDate /></section>
 
       <section id="story"><OurStory /></section>
       <section id="details"><WeddingDetails /></section>

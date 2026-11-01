@@ -81,6 +81,13 @@ export interface WeddingConfig {
     hotels: { name: string; distance: string; contact: string; mapsUrl: string }[];
     transportation: { icon: string; title: string; details: string }[];
   };
+  saveTheDate?: {
+    kicker?: string;
+    title?: string;
+    subtitle?: string;
+    youtubeUrl: string;
+    embedUrl: string;
+  };
 }
 
 export const weddingConfig: WeddingConfig = {
@@ -324,5 +331,12 @@ export const weddingConfig: WeddingConfig = {
       { icon: "car", title: "By Car", details: "From Manila, take NLEX → San Jose del Monte exit. Both venues are ~45 min from Metro Manila via SLEX or NLEX." },
       { icon: "bus", title: "By Bus", details: "Take a Bus or UV Express from Cubao or Fairview to San Jose del Monte. Tricycles available from the terminal to the venues." },
     ],
+  },
+  saveTheDate: {
+    kicker: "Pre-Wedding Film",
+    title: "Save the Date",
+    subtitle: "A glimpse into our journey and the celebration that awaits as we step into our forever.",
+    youtubeUrl: "https://youtu.be/HUxVK75jWOE",
+    embedUrl: "https://www.youtube.com/embed/HUxVK75jWOE",
   },
 };
